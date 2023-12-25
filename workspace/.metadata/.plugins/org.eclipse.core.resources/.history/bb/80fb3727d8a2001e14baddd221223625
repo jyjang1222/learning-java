@@ -1,0 +1,15 @@
+package 기본이론1_개념;
+
+public class 기본이론8_문자와숫자출력 {
+	public static void main(String[] args) {
+	/*
+		더하기 : +
+		(1) 덧셈 : 숫자 + 숫자 => 숫자
+		(2) 연결 
+				문자 + 숫자 => 문자
+				숫자 + 문자 => 문자
+				문자 + 문자 => 문자
+	*/
+		System.out.println("나누기(소수점) = " + 10.0 / 3);
+	}
+}
