@@ -1,0 +1,15 @@
+package 기본이론1_개념;
+
+public class 기본이론1_주석 {
+	public static void main(String[] args) {
+		// 패키지익스플로러 : Ctrl + M
+		// 창닫기 : Ctrl + W
+		// 이동 : Alt + 방향키(위, 아래)
+//		 복제 : Ctrl + Alt + 방향키
+		// 삭제 : Ctrl + D
+		// undo : Ctrl + Z
+		// redo : Ctrl + Y
+		// 자동완성 : Ctrl + Spacebar
+		// 확대축소 : Ctrl + +,-
+	}
+}
