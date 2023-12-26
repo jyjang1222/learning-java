@@ -1,0 +1,12 @@
+package 조건문1_개념;
+
+import java.util.random;
+
+public class 조건문3_개념01_랜덤 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
