@@ -1,0 +1,16 @@
+package 변수3_개념;
+/* 
+java.util 패키지 안에
+	Scanner라는 이름의 클래스 파일의 내용을
+	이 페이지에서 사용하겠다.
+*/
+import java.util.Scanner;
+
+public class 변수3_개념04_입력 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
