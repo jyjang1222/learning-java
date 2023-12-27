@@ -1,4 +1,4 @@
-package 기본이론1_개념;
+package 기본이론_개념;
 
 public class 기본이론5_자료형 {
 	public static void main(String[] args) {

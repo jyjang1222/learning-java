@@ -1,4 +1,4 @@
-package 변수1_개념;
+package 변수_개념;
 
 public class 변수1_개념07_자료형변환 {
 

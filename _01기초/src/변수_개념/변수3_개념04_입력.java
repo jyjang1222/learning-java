@@ -1,4 +1,4 @@
-package 변수3_개념;
+package 변수_개념;
 /* 
 java.util 패키지 안에
 	Scanner라는 이름의 클래스 파일의 내용을

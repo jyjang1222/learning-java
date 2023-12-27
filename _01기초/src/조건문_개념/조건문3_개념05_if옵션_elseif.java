@@ -1,4 +1,4 @@
-package 조건문1_개념;
+package 조건문_개념;
 
 public class 조건문3_개념05_if옵션_elseif {
 
