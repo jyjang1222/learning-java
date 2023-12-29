@@ -5,7 +5,7 @@ class Test {
 	// 영상에서 클래스 변수라고 설명했으나,
   // 정확한 명칭은 인스턴스 변수(파란색)
 	// 클래스 변수는 값이 자동 초기화
-	// int(0), double(0.0), String클래스(null), 배열(null)
+	// int(0), double(0.0), String클래스(null), 배열(null), boolean(false)
 	int x;
 	int y;
 	
