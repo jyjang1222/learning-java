@@ -18,3 +18,7 @@ local.properties
 .target
 .springBeans
 .recommenders/
+#intellij
+out/
+.idea/
+*.iml
