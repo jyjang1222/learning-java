@@ -19,10 +19,10 @@ public class 배열9_개념12_리스트기본 {
 		}
 		
 		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
 			if (list.get(i) == 4) {
 				list.set(i, 3);
 			}
+			System.out.println(list.get(i));
 		}
 		
 		System.out.println(list);

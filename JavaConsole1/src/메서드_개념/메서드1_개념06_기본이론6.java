@@ -26,13 +26,13 @@ public class 메서드1_개념06_기본이론6 {
 		
 		System.out.println("-----------------------");
 		// 아래와 같은 상황이다.
-		int testArr[] = {10,20,30,40};
-		int temp[] = testArr;
-		temp[1] = 100;
-		for(int i = 0; i < testArr.length; i++) {
-			System.out.print(testArr[i] + " ");
-		}
-		System.out.println();
+//		int testArr[] = {10,20,30,40};
+//		int temp[] = testArr;
+//		temp[1] = 100;
+//		for(int i = 0; i < testArr.length; i++) {
+//			System.out.print(testArr[i] + " ");
+//		}
+//		System.out.println();
 	}
 
 }

@@ -25,10 +25,10 @@ public class 메서드1_개념05_기본이론5 {
 		System.out.println("--------------");
 	
 		// 아래 예제와 같은 상황이다.
-		int b = 20;
-		int c = b;
-		c = 100;
-		System.out.println(b);
+//		int b = 20;
+//		int c = b;
+//		c = 100;
+//		System.out.println(b);
 	}
 
 }

@@ -26,6 +26,7 @@ public class 메서드1_개념09_변수 {
 
 	public static void main(String[] args) {
 		Test t = new Test();
+		t.print();
 		t.x = 10;
 		t.y = 20;
 		t.print();

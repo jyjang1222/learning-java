@@ -17,11 +17,10 @@ public class 배열1_개념02_기본이론 {
 		char[] arr5 = {'m' ,'i' , 'k' , 'e'};
 		
 		int[][] arr6 = new int[2][2];
-		
+
 		for (int[] array : arr6) {
 			System.out.println(Arrays.toString(array));
 		}
-		
 		
 	}
 
