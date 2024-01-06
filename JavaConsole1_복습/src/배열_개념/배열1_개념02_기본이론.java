@@ -22,6 +22,8 @@ public class 배열1_개념02_기본이론 {
 			System.out.println(Arrays.toString(array));
 		}
 		
+		int[] arr7 = null;
+		arr7 = new int[2];
 	}
 
 }
