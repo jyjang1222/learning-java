@@ -6,7 +6,7 @@ import java.util.Arrays;
 // 객체지향
 class Controller {
 	int[] score = new int[0];
-	int curCommand = 0;
+	int command;
 	
 	void printMenu() {
 		System.out.println("[벡터 컨트롤러]");
@@ -60,17 +60,17 @@ class Controller {
 			printData();
 			printMenu();
 			
-			curCommand = scan.nextInt();
+			command = scan.nextInt();
 			
-			if (curCommand == 0) {
+			if (command == 0) {
 				break;
 			}
-			if (curCommand == 1) {
+			if (command == 1) {
 				System.out.print("추가할 값을 입력 : ");
 				int inputVal = scan.nextInt();
 				addData(inputVal);
 			} 
-			if (curCommand == 4) {
+			if (command == 4) {
 				if(checkExistData()) {
 					System.out.print("삽입할 위치(인덱스) 입력 : ");
 					int insertIdx = scan.nextInt();
