@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 // 객체지향
 class Controller {
-	int[] score = new int[0];
+	int[] score;
 	int command;
 	
 	void printMenu() {
@@ -55,6 +55,7 @@ class Controller {
 	
 	void init() {
 		Scanner scan = new Scanner(System.in);
+		score = new int[0];
 		
 		while(true) {
 			printData();
