@@ -2,6 +2,7 @@ package 메서드_개념;
 
 class TestReturn2_1 {
 	int result;
+	// return값이 없으면 void로 선언
 	void plus(int a , int b) {
 		result = a + b;
 		// return;
