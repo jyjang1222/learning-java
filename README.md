@@ -14,6 +14,7 @@ redo : Ctrl + Y
 자동완성 : Ctrl + Spacebar
 확대축소 : Ctrl + +,-
 실행 : Ctrl + F11
+getter, setter메서드 자동완성 : alt + shift + s, r
 ```
 
 ### IntelliJ
