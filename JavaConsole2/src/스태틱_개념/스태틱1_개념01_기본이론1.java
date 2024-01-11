@@ -3,6 +3,7 @@ package 스태틱_개념;
 class Test01 {
 	
 	// 클래스영역의 변수의 종류 (클래스영역 = 메서드 밖의 영역)
+	// 클래스영역에 생성된 변수는 자동 초기화
 	public int a;				// non-static 변수 = 인스턴스 변수 (new할시 초기화)
 	public static int b;		// static 변수	  = 클래스 변수 (0으로 초기화)
 	
