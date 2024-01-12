@@ -67,7 +67,7 @@ class MethodOverriding {
 }
 
 class Child extends MethodOverriding {
-	void overridTest() 
+	void overridTest() // 메서드 재정의
 	{
 		System.out.println("overridTestChild");
 	}
@@ -81,6 +81,7 @@ public class 상속_개념07_오버라이딩 {
 	}
 }
 ```
-- 메서드 오버라이딩은 부모 클래스에 있는 메서드를 자식 클래스가 같은 이름으로 메서드를 만들어서 사용하는 것이다. 
+- 메서드 오버라이딩은 부모 클래스에 있는 메서드를 자식 클래스가 같은 이름으로 메서드를 만들어서 사용하는 것이다. (메서드 재정의)
+- 대표적인 예가 equals() 메서드. String클래스가 Object클래스를 상속받아 equals메서드를 재정의한 것.
 - 부모의 메서드는 실행되지않고 자식의 메서드가 우선순위를 가져간다.
 
