@@ -17,12 +17,12 @@ class Client {
 
 //DAO (Data Access Object)
 //데이터 액세스 객체(DB의 data에 접근하기 위한 객체)
-//DB에서 데이터를 가져오거나 DB에 데이터를 저장하는 등의 작업을 수행하는 객체
+//DB에서 데이터를 가져오거나 DB에 데이터를 저장하는 등 CRUD작업을 수행하는 객체
 //비즈니스 계층과 DB 간의 인터페이스 역할
 
 class StaticClientDAO{
 	public static Vector<Client> clientList = new Vector<Client>();	
-	static public void addClient(Client c) {
+	public static void addClient(Client c) {
 		clientList.add(c);
 	}	
 }
@@ -33,6 +33,8 @@ class ClientDAO{
 		clientList.add(c);
 	}	
 }
+
+//DTO와 DAO는 항상 한세트로 만든다고 생각하면된다
 
 public class 스태틱1_개념03_기본이론3 {
 

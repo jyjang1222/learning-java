@@ -10,21 +10,23 @@ class StaticTest {
 	private int score2;
 	private String name2;
 
-	static public int getScore() {
+	public static int getScore() {
 		return score;
 	}
 
-	static public void setScore(int score) {
+	public static void setScore(int score) {
 		StaticTest.score = score;
 	}
 
-	static public String getName() {
+	public static String getName() {
 		return name;
 	}
 
-	static public void setName(String name) {
+	public static void setName(String name) {
 		StaticTest.name = name;
 	}
+	
+	//
 
 	public int getScore2() {
 		return score2;
