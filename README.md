@@ -41,3 +41,45 @@ getter, setter메서드 자동완성 : alt + shift + s, r
 11. strictfp
 
 출처 : https://www.oracle.com/java/technologies/javase/codeconventions-fileorganization.html#1852
+
+## 오버로딩, 오버라이딩
+### 메서드 오버로딩 overloading
+```java
+class MethodOverloding {
+	void test(int a) {}
+	void test(int a , int b) {}
+	void test(String a) {}
+}
+```
+- 메서드 오버로딩은 같은 이름의 메서드를 사용할 수 있는 기능이다.
+
+### 메서드 오버라이딩 overriding
+```java
+class MethodOverriding {
+	void test() {
+		System.out.println("testParent");
+	}
+	void overridTest() 
+	{
+		System.out.println("overridTestParent");
+	}
+}
+
+class Child extends MethodOverriding {
+	void overridTest() 
+	{
+		System.out.println("overridTestChild");
+	}
+}
+
+public class 상속_개념07_오버라이딩 {
+	public static void main(String[] args) {
+		Child c = new Child();
+		c.test();
+		c.overridTest(); // 부모의 메서드는 실행되지않고 자식의 메서드가 우선순위를 가져간다.
+	}
+}
+```
+- 메서드 오버라이딩은 부모 클래스에 있는 메서드를 자식 클래스가 같은 이름으로 메서드를 만들어서 사용하는 것이다. 
+
+
