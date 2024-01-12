@@ -23,7 +23,7 @@ class EE{
 }
 
 // 상속문법
-// FF:자손클래스 EE:부모클래스
+// FF:자식클래스 EE:부모클래스
 class FF extends EE {}
 class GG extends FF {}
 class KK extends GG {}
