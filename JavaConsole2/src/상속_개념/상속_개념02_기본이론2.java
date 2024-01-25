@@ -1,4 +1,4 @@
-package 상속_개념01_기본이론1;
+package 상속_개념;
 
 class A1 {
 	int a;
