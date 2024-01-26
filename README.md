@@ -177,6 +177,27 @@ int[] arr7 = null;
 arr7 = new int[2];
 ```
 
+## 주의점
+```java
+class Test06 {
+	void changeValueInArray(int [] arr) {
+		arr[1] = 100;
+	}
+}
+
+public class 메서드1_개념06_기본이론6 {
+	public static void main(String[] args) {
+		int arr[] = {10,20,30,40,50};
+		
+		Test06 t6  = new Test06();
+		
+		// 배열은 주소이기 때문에 값이 바뀐다.
+		t6.changeValueInArray(arr);
+		System.out.println(); // 10 100 30 40 50 
+	}
+}
+```
+
 # 5.문자열
 ## 문자열 비교
 ```java
@@ -316,9 +337,76 @@ class Test02 {
 	String name;
 	int score;
 }
+public class 클래스1_개념02_클래스2 {
+	public static void main(String[] args) {
+		Test01 t1 = new Test01();
+		t1.x = 10;
+		t1.y = 20;
+		
+		Test02 t2 = new Test02();
+		t2.name = "홍길동";
+		t2.score = 87;
+	}
+}
 ```
 - 같은 패키지 안의 클래스는 다른 클래스에서 사용할 수 있다.	
 - 같은 패키지 내에서는 클래스를 중복해서 사용할 수 없다.
+
+## 인스턴스 변수
+```java
+class Test {
+	// 클래스 영역 = 메서드 밖 영역
+	// 인스턴스 변수는 값이 자동 초기화
+	// int(0), double(0.0), String클래스(null), 배열(null), boolean(false)
+	int x;
+	int y;
+	
+	void print() {
+		// 메서드 안 영역
+		// 지역 변수(노란색)
+		// 지역 변수는 값의 자동 초기화가 X
+		// 반드시 선언과 동시에 값을 초기화해줄 것을 권장
+		int result = x + y;
+		System.out.println(result);
+		System.out.println(x);
+	}
+}
+```
+
+## 클래스 배열
+```java
+class Product{
+	String name;
+	int price;
+	
+	void init(String name , int price) {
+		this.name = name;
+		this.price = price;
+	}
+	
+	void printData() {
+		System.out.println(name + " " + price);
+	}
+}
+
+public class 메서드클래스배열4_개념01_기본이론1 {
+	public static void main(String[] args) {
+		// 클래스 = 사용자 정의 데이터 타입
+		int[] list = new int[2];
+		
+		// Product 클래스 데이터타입을
+		// 저장할 방 2개를 생성해줘
+		// * 아직 Product 인스턴스가 생성된 것은 X
+		Product[] prList = new Product[2];
+		System.out.println(prList[0]);	// null
+		System.out.println(prList[1]);	// null
+		
+		// 아래 두 줄의 코드를 잊지말고 꼭 작성하자!
+		prList[0] = new Product();
+		prList[1] = new Product();
+	}
+}
+```
 
 ## 가비지컬렉터 (Garbage Collector)
 ```java
@@ -345,6 +433,145 @@ scan.close();
 ```
 
 # 7. 메서드
+## 기본개념
+```java
+/*
+# 메서드 기본구조
+(1) 정의
+	1) void			: 키워드
+	2) setNums		: 이름
+	3) (int a , int b )	: 전달된 값을 저장하는 변수(매개변수, parameter)
+	3) { 기능 }		: 실행되는 영역
+(2) 사용법
+	1) test1.setNums(10, 20);
+	2) test1		: 클래스 변수명
+	3) .setNums		: .메서드명
+	4) (10, 20);		: (전달할 값); (인자, argument)
+*/
+class Test03 {
+	int num1;
+	int num2;
+	
+	void setNums(int a , int b) {
+		num1 = a;
+		num2 = b;
+	}
+	void printNums() {
+		System.out.println(num1 + " " + num2);
+	}
+}
+public class 메서드1_개념03_기본이론3 {
+	public static void main(String[] args) {
+		// main() 메서드는 가장 먼저 호출되어 Stack메모리에 쌓인다.
+		// 아래와같이 값을 저장해서 출력 할수도있지만.
+		// 메서드를 만들어서 사용할수도있다.
+		Test03 test1 = new Test03();
+		test1.num1 = 10;
+		test1.num2 = 20;
+			
+		Test03 test2 = new Test03();
+		test2.setNums(10, 20);
+		test2.printNums();
+	}
+}
+```
+
+## 인스턴스를 메서드 인자로 활용 예제
+```java
+package 메서드_개념;
+
+class Data{
+	int a;
+	int b;
+	int result;
+	String op;
+	void print() {
+		System.out.println(a + op + b + "=" + result);
+	}
+}
+
+class Calc{
+	void plus(Data data , int a , int b) {
+		data.a = a;
+		data.b = b;
+		data.op  = "+";
+		data.result = a + b;
+	}
+	void minus(Data data , int a , int b) {
+		data.a = a;
+		data.b = b;
+		data.op = "-";
+		data.result = a - b;
+	}
+}
+
+public class 메서드1_개념07_기본이론7 {
+
+	public static void main(String[] args) {
+		Data data = new Data();		
+		Calc calc = new Calc();	
+		
+		// data 는 new Data() 의 주소가 들어있기때문에 가능하다. 
+		calc.plus(data, 10, 3);
+		data.print();
+		calc.minus(data, 11, 4);
+		data.print();
+	}
+
+}
+```
+## 메서드 리턴
+```java
+class TestReturn2_1 {
+	int result;
+	// return값이 없으면 void로 선언
+	void plus(int a , int b) {	// 메서드의 선언부 
+		result = a + b;		// 메서드의 구현부
+		// return; return 메서드 종료, void일 경우에는 return생략가능
+	}
+}
+
+class TestReturn2_2 {
+	int plus(int a , int b) {
+		// result 변수가 없어도 기능을 만들수있다. 
+		return a + b;
+	}
+}
+```
+- 리턴 사용방법
+1. return 메서드를 사용하면 클래스내의 변수한개를 줄일수있다.
+2. 굳이 쓰지않아도 프로그램 만드는데는 아무런지장이 없다. 
+3. 하지만 프로그래밍이 능숙해지면 자연히쓰게된다.
+- 리턴메서드 만드는법
+1. int 			   ==> main 으로 보낼 자료형 
+2. plus(int a , int b)     ==> 이름 
+3. { return + 내보낼 값 }   ==> 이값은 main 으로 보내진다.   
+
+## 디자인 패턴 (setter, getter)
+```java
+class TestReturn3 {
+	int num;
+	// set메서드 : 변수 num에 값을 저장
+	void setNum(int num) {
+		this.num = num;
+	}
+	// get메서드 : 변수 num의 값을 반환(return)
+	int getNum() {
+		return num;
+	}
+}
+
+public class 메서드리턴2_개념03_기본이론3 {
+	public static void main(String[] args) {	
+		TestReturn3 t1 = new TestReturn3();
+		t1.setNum(10);
+		
+		int num1 = t1.getNum();
+		System.out.println(num1);
+	}
+}
+```
+
 ## 오버로딩, 오버라이딩
 ### 메서드 오버로딩 overloading
 ```java
