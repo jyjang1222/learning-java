@@ -132,7 +132,7 @@ Random ran = new Random();
 int rNum = ran.nextInt(3); // 0 ~ 2
 ```
 # 3. 반복문
-## 문법
+## 기본개념
 ```java
 String[] test = {"aaa" , "bbb" , "ccc"};
 		
@@ -269,6 +269,82 @@ String data2 = scan.nextLine();
 // 2) 그럴경우 next 뒤에 아무내용없는 nextLine을 하나 적어준다.
 ```
 
+## 문자열 배열
+```java
+int[] arr = new int[3];	// 0으로 초기화
+double[] arr2 = new double[3]; 	// 0.0
+String[] temp = new String[3];	// null
+```
+
+# 6. 클래스
+## 기본개념
+```java
+package 클래스_개념;
+/*
+	클래스 : 객체를 생성하기위한 설계 틀
+	객체 : 인스턴스 집합
+	인스턴스 : new키워드를 사용해서 메모리에 올라간 상태인 하나의 객체
+*/
+class Member {
+	int number;
+	String id;
+	String pw;
+	String name;
+	int score;
+}
+
+class Test01 {
+	int x;
+	int y;
+}
+
+public class 클래스1_개념01_클래스1 {
+	public static void main(String[] args) {
+		Member member = new Member();
+		member.number = 1; //디폴트 초기화값 0
+		member.id = "qwer"; //디폴트 초기화값 null
+		member.pw = "1234";
+		member.name = "김철수";
+		member.score = 30;
+	}
+}
+```
+```java
+package 클래스_개념;
+
+class Test02 {
+	String name;
+	int score;
+}
+```
+- 같은 패키지 안의 클래스는 다른 클래스에서 사용할 수 있다.	
+- 같은 패키지 내에서는 클래스를 중복해서 사용할 수 없다.
+
+## 가비지컬렉터 (Garbage Collector)
+```java
+import java.util.Scanner;
+
+class Sample01 {
+	int a;
+	int b;
+}
+
+Scanner scan = new Scanner(System.in);
+		
+Sample01 s1 = new Sample01(); //garbage 데이터
+s1 = new Sample01();
+s1.a = scan.nextInt();
+		
+// s1 = null;		
+		
+// s1을 null로 저장하지 않아도
+// GC(Garbage Collector)가 알아서 메모리를 해제해준다.
+s1 = new Sample01();
+		
+scan.close();
+```
+
+# 7. 메서드
 ## 오버로딩, 오버라이딩
 ### 메서드 오버로딩 overloading
 ```java
