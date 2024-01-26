@@ -131,8 +131,27 @@ scan.close();
 Random ran = new Random();
 int rNum = ran.nextInt(3); // 0 ~ 2
 ```
+# 3. 반복문
+## 문법
+```java
+String[] test = {"aaa" , "bbb" , "ccc"};
+		
+for (int i = 0; i < test.length; i++) {
+	String str = test[i];
+	System.out.println(str);
+}
+		
+for (String str : test) {
+	System.out.println(str);
+}
+		
+int[] test2 = {1, 2, 3};
+for (Integer num : test2) {
+	System.out.println(num);
+}
+```
 
-# 3. 배열
+# 4. 배열
 ## 선언방법
 ```java
 import java.util.Arrays;
@@ -156,6 +175,98 @@ for (int[] array : arr6) {
 		
 int[] arr7 = null;
 arr7 = new int[2];
+```
+
+# 5.문자열
+## 문자열 비교
+```java
+/*
+문자들은 기본적으로 숫자를 가지고있다.
+compareTo는 빼기를 의미한다.
+"a"가 숫자 97이라면 "b"는 98이다.
+a에서 b를 뺀다면, 음수가 나올것이다.
+*/
+String str1 = "가";		
+String str2 = "나";		
+		
+int rs1 = str1.compareTo(str2);
+System.out.println(rs1);			// 음수
+		
+int rs2 = str2.compareTo(str1);
+System.out.println(rs2);			// 양수
+		
+String str3 = "가";
+int rs3 = str1.compareTo(str3);
+System.out.println(rs3);			// 0
+```
+
+## 문자열 함수
+1. 문자열의 길이 : length()
+2. 문자 한 개 추출(인덱싱) : charAt(index)
+3. 문자 여러개 추출(슬라이싱) : substring(index), substring(index1, index2)
+4. split(구분자 문자) : 구분자로 잘라내어 배열에 저장
+5. trim() : 앞뒤 공백 제거
+6. replaceAll("기존단어","대체단어") : 문자열 변경
+
+## 형변환
+```java
+// 1. 기본 자료형 형변환하는 방법 : (자료형)변수
+// * 문자 -> 숫자
+char ch = 'a';
+int chNum = (int)ch;	// 97
+		
+ch = (char)(chNum + 1);    //b
+		
+// 2. 문자열 형변환하는 방법 : 특수함수를 사용해야한다.
+// * 문자열 -> 숫자
+String strNum = "10";
+int num = Integer.parseInt(strNum);
+System.out.println(num + 1);		// 11
+		
+// * 숫자 -> 문자열
+// 방법1) 꼼수
+strNum = num + "";
+System.out.println(strNum + 1);		// 101
+		
+// 방법2) 정식
+strNum = String.valueOf(num);
+System.out.println(strNum + 1);		// 101
+```
+
+## 문자열 포맷
+```java
+String[] name = { "aaa" , "bbbbbbbb" , "c"};
+int[] total = { 271 , 200, 24};
+double[] avg = new double[3];
+for(int i = 0; i < 3; i++) {
+	avg[i] = (double)total[i] / 3;
+}
+
+// 오른쪽 정렬, - 는 왼쪽 정렬 
+for (int i = 0; i < 3; i++) {
+	System.out.printf("[%10s] [%-5d] [%-6.2f]", name[i], total[i], avg[i]);
+	System.out.println();
+}
+
+// String.format()은 단순 출력이 아닌 문자열로 저장하고 싶을 때 사용한다.
+String data = "";
+for(int i = 0; i < 3; i++) {
+	data += String.format("[%-10s] [%-5d] [%-6.2f]",name[i] , total[i] , avg[i]);
+	data +="\n";
+}
+```
+
+## 문자열 입력
+```java
+String data = scan.next();
+// scan.next ==> space 인식불가
+scan.nextLine(); 
+
+String data2 = scan.nextLine();
+//scan.nextLine ==> space 인식
+
+// 1) next와 nextLine을 동시에 사용하면 엔터가 먹힌는 경우가 발생된다.
+// 2) 그럴경우 next 뒤에 아무내용없는 nextLine을 하나 적어준다.
 ```
 
 ## 오버로딩, 오버라이딩
