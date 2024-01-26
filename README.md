@@ -1,9 +1,9 @@
 # 0. 자바 설치
-1. 자바 언어
+1. 자바 언어 https://youtu.be/9uJQHdtwmBs
 2. 확인 : c > program > java
 	- jdk = java development kit
 	- jre = java runtime environment 
-3. 이클립스(eclipse)
+3. 이클립스(eclipse) https://youtu.be/o09bJ7KQW3U
 	- 설치형
  	- 압축해제형 
 4. 이클립스에서 Java파일 생성
