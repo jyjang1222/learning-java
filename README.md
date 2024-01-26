@@ -1,6 +1,4 @@
-# learning-java
- 자바학습저장소1
-
+# 자바학습저장소
 ## 단축키
 ### Eclipse
 ```
@@ -32,6 +30,30 @@ getter, setter메서드 자동완성 : alt + shift + s, r
 6. transient 7. volatile 8. default 9. synchronized 10. native 11. strictfp
 
 출처 : https://www.oracle.com/java/technologies/javase/codeconventions-fileorganization.html#1852
+
+## 서식문자
+```java
+/*
+출력문의 종류
+1. println()
+2. print()
+---------------------
+3. printf()
+1) f = format(서식)
+2) 서식 문자의 종류 (어떤 형식으로 출력할지 결정)
+	%알파벳
+	%d		decimal,정수
+	%f		float,실수
+	%c		character,문자한개
+	%s		String,문자여러개
+*/
+System.out.printf("%d", 10);
+System.out.println(3.14142454235345325); 
+System.out.printf("%10.2f", 3.14142454235345325); //3.14
+System.out.printf("%.0f", num2); //3
+System.out.printf("%c", 'A');
+System.out.printf("%d%% + %d%% = %d%%", 50, 50, 100);
+```
 
 ## 오버로딩, 오버라이딩
 ### 메서드 오버로딩 overloading
