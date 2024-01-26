@@ -1,4 +1,4 @@
-# 기본이론
+# 1. 기본이론
 ## 단축키
 ### Eclipse
 ```
@@ -73,7 +73,7 @@ System.out.println("\"Hi\"");
 System.out.println("\'Hi\'");
 ```
 
-# 변수
+# 2. 변수
 ## 변수의 크기와 종류
 ```java
 // 1. 정수 : int, long
@@ -90,6 +90,12 @@ long b = 3000000000L;
 // float 보단 double을 사용한다.
 float c = 1.1234567891234F;		// float도 double과 구분을 위해 F를 붙여준다.
 double d = 1.1234567891234;		// double도 한계가 있지만 float 보단 큰 수를 저장할 수 있다.
+```
+
+## 상수
+```java
+final int NUM = 20; // 상수는 대문자로 선언
+final int MAX = 30;
 ```
 
 ## 자료형 변환
@@ -111,15 +117,45 @@ double result1 = x / y;
 double result2 = (double)x / y;
 ```
 
-## 입력
+## 입력과 랜덤
 ```java
 import java.util.Scanner;
+import java.util.Random;
 
 Scanner scan = new Scanner(System.in);
 System.out.print("나이를 입력하세요 : ");
 int age = scan.nextInt();
 System.out.println("당신의 나이 = " + age + "세");
 scan.close();
+
+Random ran = new Random();
+int rNum = ran.nextInt(3); // 0 ~ 2
+```
+
+# 3. 배열
+## 선언방법
+```java
+import java.util.Arrays;
+
+int[] arr = new int[3];
+for (int i = 0; i < arr.length; i++) {
+	arr[i] = i * 10;
+}
+System.out.println(Arrays.toString(arr));
+		
+int[] arr2 = {1, 2, 3};
+double[] arr3 = {1.1, 1.2, 1.3};
+boolean[] arr4 = {true, false};
+char[] arr5 = {'m', 'i', 'k', 'e'};
+		
+int[][] arr6 = new int[2][2];
+		
+for (int[] array : arr6) {
+	System.out.println(Arrays.toString(array));
+}
+		
+int[] arr7 = null;
+arr7 = new int[2];
 ```
 
 ## 오버로딩, 오버라이딩
