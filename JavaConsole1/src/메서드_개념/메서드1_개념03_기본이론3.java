@@ -30,7 +30,7 @@ class Test03 {
 public class 메서드1_개념03_기본이론3 {
 
 	public static void main(String[] args) {
-		// 아래와같이 같을 저장해서 출력 할수도있지만.
+		// 아래와같이 값을 저장해서 출력 할수도있지만.
 		// 메서드를 만들어서 사용할수도있다.
 		Test03 test1 = new Test03();
 		test1.num1 = 10;

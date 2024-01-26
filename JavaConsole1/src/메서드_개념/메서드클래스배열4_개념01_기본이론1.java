@@ -18,11 +18,11 @@ public class 메서드클래스배열4_개념01_기본이론1 {
 
 	public static void main(String[] args) {
 		// 클래스 = 사용자 정의 데이터 타입
-		int[]     list   = new int[2];
+		int[] list = new int[2];
 		
-		//                 Product 클래스 데이터타입을
-		//				   저장할 방 2개를 생성해줘~
-		//				   * 아직 Product 클래스가 생성된 것은 X
+		// Product 클래스 데이터타입을
+		// 저장할 방 2개를 생성해줘~
+		// * 아직 Product 인스턴스가 생성된 것은 X
 		Product[] prList = new Product[2];
 		System.out.println(prList[0]);	// null
 		System.out.println(prList[1]);	// null
