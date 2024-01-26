@@ -538,14 +538,14 @@ class TestReturn2_2 {
 	}
 }
 ```
-- 리턴 사용방법
-1. return 메서드를 사용하면 클래스내의 변수한개를 줄일수있다.
-2. 굳이 쓰지않아도 프로그램 만드는데는 아무런지장이 없다. 
-3. 하지만 프로그래밍이 능숙해지면 자연히쓰게된다.
-- 리턴메서드 만드는법
-1. int 			   ==> main 으로 보낼 자료형 
-2. plus(int a , int b)     ==> 이름 
-3. { return + 내보낼 값 }   ==> 이값은 main 으로 보내진다.   
+1. 리턴 사용방법
+- return 메서드를 사용하면 클래스내의 변수한개를 줄일수있다.
+- 굳이 쓰지않아도 프로그램 만드는데는 아무런지장이 없다. 
+- 하지만 프로그래밍이 능숙해지면 자연히쓰게된다.
+2. 리턴메서드 만드는법
+- int 			  ==> main 으로 보낼 자료형 
+- plus(int a , int b)     ==> 이름 
+- { return + 내보낼 값 }   ==> 이값은 main 으로 보내진다.   
 
 ## 디자인 패턴 (setter, getter)
 ```java
@@ -573,7 +573,7 @@ public class 메서드리턴2_개념03_기본이론3 {
 ```
 
 ## 오버로딩, 오버라이딩
-### 메서드 오버로딩 overloading
+### 메서드 오버로딩 (overloading)
 ```java
 class MethodOverloding {
 	void test(int a) {}
@@ -584,7 +584,7 @@ class MethodOverloding {
 - 메서드 오버로딩은 같은 이름의 메서드를 사용할 수 있는 기능이다.
 - 메서드의 이름이 같아도 전달되는 값이 다르다면 서로 다른 메서드로 인식한다.
 
-### 메서드 오버라이딩 overriding
+### 메서드 오버라이딩 (overriding)
 ```java
 class MethodOverriding {
 	void test() {
