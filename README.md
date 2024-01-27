@@ -692,6 +692,7 @@ public class 예외처리_개념06_기본이론6 {
 		
 try {
 	// java.lang 패키지내 클래스는 import하지 않고 사용가능 (System, Thread 등)
+	// Thread.sleep은 try catch로 예외처리를 해주어야 함. (예외처리 방법2 참고)
 	System.out.println("test");
 	Thread.sleep(1000);			
 	System.out.println("test");
