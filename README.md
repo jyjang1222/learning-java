@@ -491,48 +491,46 @@ public class 메서드1_개념03_기본이론3 {
 
 ## 인스턴스를 메서드 인자로 활용 예제
 ```java
-package 메서드_개념;
-
-class Data{
+class Data {
 	int a;
 	int b;
-	int result;
 	String op;
+	int res;
+	void setData(int a, int b) {
+		this.a = a;
+		this.b = b;
+	}
 	void print() {
-		System.out.println(a + op + b + "=" + result);
+		System.out.printf("%d %s %d = %d\n", a, op, b, res);
 	}
 }
 
-class Calc{
-	void plus(Data data , int a , int b) {
-		data.a = a;
-		data.b = b;
-		data.op  = "+";
-		data.result = a + b;
+class Calc {
+	void plus(Data data) {
+		data.op = "+";
+		data.res = data.a + data.b;
 	}
-	void minus(Data data , int a , int b) {
-		data.a = a;
-		data.b = b;
+	void minus(Data data) {
 		data.op = "-";
-		data.result = a - b;
+		data.res = data.a - data.b;
 	}
 }
 
 public class 메서드1_개념07_기본이론7 {
-
 	public static void main(String[] args) {
-		Data data = new Data();		
-		Calc calc = new Calc();	
-		
-		// data 는 new Data() 의 주소가 들어있기때문에 가능하다. 
-		calc.plus(data, 10, 3);
-		data.print();
-		calc.minus(data, 11, 4);
-		data.print();
+		Data data1 = new Data();
+		data1.setData(1, 2);
+		Calc calc1 = new Calc();
+		// data1 는 new Data() 의 주소가 들어있기때문에 값 변경이 가능하다. 
+		calc1.plus(data1);
+		data1.print();
+		calc1.minus(data1);
+		data1.print();
 	}
 
 }
 ```
+
 ## 메서드 리턴
 ```java
 class TestReturn2_1 {
