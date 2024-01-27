@@ -626,3 +626,19 @@ public class 상속_개념07_오버라이딩 {
 - 대표적인 예가 equals() 메서드. String클래스가 Object클래스를 상속받아 equals메서드를 재정의한 것.
 - 부모의 메서드는 실행되지않고 자식의 메서드가 우선순위를 가져간다.
 
+# 8. 예외처리
+```java		
+try {
+	// 에러가 발생할 코드 작성
+	System.out.println(10 / 0);
+} catch (Exception e) {
+	// try영역에서 에러가 발생하면 실행할 영역
+	// 모든 에러를 다 잡아주는 Exception을 보통 사용한다. 
+	System.out.println("0으로 나눌수 없습니다");
+} finally {
+	// finally 는 에러 유무 상관없이 무조건 실행된다.
+	// 코드가 잘 작동했는지 확인 할때 쓴다. (안내문구용)
+	System.out.println("나누기가 성공적으로 실행됬습니다.");
+	System.out.println("예외발생과 상관없이 무조건 실행할 문장을 적는다.");
+}
+```
