@@ -626,3 +626,77 @@ public class 상속_개념07_오버라이딩 {
 - 대표적인 예가 equals() 메서드. String클래스가 Object클래스를 상속받아 equals메서드를 재정의한 것.
 - 부모의 메서드는 실행되지않고 자식의 메서드가 우선순위를 가져간다.
 
+# 8. 예외처리
+## try, catch, finally
+```java		
+try {
+	// 에러가 발생할 코드 작성
+	System.out.println(10 / 0);
+} catch (Exception e) {
+	// try영역에서 에러가 발생하면 실행할 영역
+	// 모든 에러를 다 잡아주는 Exception을 보통 사용한다. 
+	System.out.println("0으로 나눌수 없습니다");
+	e.printStackTrace();
+} finally {
+	// finally 는 에러 유무 상관없이 무조건 실행된다.
+	// 코드가 잘 작동했는지 확인 할때 쓴다. (안내문구용)
+	System.out.println("나누기가 성공적으로 실행됬습니다.");
+	System.out.println("예외발생과 상관없이 무조건 실행할 문장을 적는다.");
+}
+```
+
+## 예외처리 방법
+```java
+//일반적으로 메서드 안에는 전부 try catch를 작성
+class Test {
+	// 예외처리하는 방법 2가지 (첫번째 방법 많이 사용함)
+	// (1) try {} 안에  식을 적는다.
+	void sample1() {
+		try {
+			int a = 10 / 0;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	// (2) 메서드 이름 옆에 throws Exception 을 적는다.
+	//     조건) 대신, 메서드 호출할때 try{}로 감싸줘야한다. 
+	void sample2() throws Exception { //호출시 무조건 예외(Exception) 발생
+		int a = 10 / 0;
+	}
+}
+
+public class 예외처리_개념06_기본이론6 {
+	public static void main(String[] args) {
+		Test t = new Test();
+		
+		t.sample1();
+		System.out.println("test");
+		
+//		t.sample2(); 오류발생
+		try {
+			t.sample2();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("test2");
+	}
+}
+```
+
+## Thread.sleep
+```java
+// [1] Thread.sleep(밀리세컨즈)
+// [2] () 안에 넣은 값만큼 일시정지된다. 
+// [3] 밀리세컨즈이기때문에 1000 이 1초이다. 
+// [4] 이걸활용해서 동적프로그램을 만들수있다. (GUI 에서 활용)
+		
+try {
+	// java.lang 패키지내 클래스는 import하지 않고 사용가능 (System, Thread 등)
+	// Thread.sleep은 try catch로 예외처리를 해주어야 함. (예외처리 방법2 참고)
+	System.out.println("test");
+	Thread.sleep(1000);			
+	System.out.println("test");
+} catch(Exception e) {
+	e.printStackTrace();
+}
+```
