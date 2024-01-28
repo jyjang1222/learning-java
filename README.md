@@ -645,7 +645,7 @@ try {
 }
 ```
 
-## 예외처리 방법
+## throws Exception
 ```java
 //일반적으로 메서드 안에는 전부 try catch를 작성
 class Test {
@@ -790,5 +790,61 @@ if (file.exists()) {
 	}
 } else {
 	System.out.println("불러오기 실패");
+}
+```
+
+# 10. 생성자
+## 방법
+```java
+/*
+ * # 생성자(constructor)
+ * 1. 생성자는 반드시 클래스 이름과 같아야 한다.
+ * 2. 생성자는 new 클래스명(); 이때 호출된다.
+ * 3. 생성자는 인스턴스 변수를 초기화 시킬 목적으로 사용한다.
+ * 4. 생성자를 정의하지 않으면, 자바 컴파일러가 자동으로 기본 생성자를 만든다.
+ * 5. 기본생성자란, 매개변수에 아무것도 없는 생성자를 의미한다.
+ * 6. 생성자는 리턴타입을 가지지 않고 return도 사용하지 않는다.(메서드와의 차이점)
+ * 7. 생성자를 재정의하면 기본 생성자는 자동으로 만들어지지 않는다.
+ * 8. 보통은 setter를 통해 초기화를 하고 스프링까지 배우면 생성자는 잘안쓰게된다.
+*/
+class Toy {
+	String name;
+	int price;
+	
+	// 기본생성자 (생략가능)
+	Toy () {
+		name = "박스";
+		price = 1000;
+	}
+	
+	// 생성자 재정의 (오버로딩)
+	Toy (String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
+	
+	void setData(String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
+	String getData() {
+		return name + String.valueOf(price);
+	}
+}
+
+public class 생성자_개념01_기본이론1 {
+	public static void main(String[] args) {
+		Toy toy1 = new Toy();
+		
+		// 방법1 속성에 직접 값입력을 해서 초기화
+		toy1.name = "인형";
+		toy1.price = 1000;
+		
+		// 방법2 메서드를 통해 초기화
+		toy1.setData("로봇", 2000);
+		
+		// 방법3 생성자를 통해 초기화
+		Toy toy2 = new Toy("인형", 2000);
+	}
 }
 ```
