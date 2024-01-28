@@ -894,3 +894,168 @@ Test01 t = new Test01();
 t.c = 30;
 t.d = 40;
 ```
+- 접근제어자 : public(공공의), protected(추후 설명), default(접근제어자가 없는 상태), private(개인의)
+
+# 12. 스태틱
+## 스태틱 활용 예제1
+```java
+class Test01 {
+	public int a;			// non-static 변수 = 인스턴스 변수 (new할시 초기화)
+	public static int b;		// static 변수	  = 클래스 변수 (0으로 초기화)
+	
+	static void test() {
+		System.out.println("!!");
+	}
+}
+
+public class 스태틱1_개념01_기본이론1 {
+	public static void main(String[] args) {
+		// static 키워드 
+		// static키워드가 붙은 변수와 메서드는 실행하면 바로 static 메모리영역에 할당이 돼서
+		// new 를 하지 않아도 사용할 수 있다.
+		// 스태틱 메서드는 호출시에 stack에 올라감
+		
+		// static으로 생성한 변수에 접근하는법
+        	// 클래스명.변수명  ==> Test01.b
+		Test01.b = 10;
+		Test01 t1 = new Test01();
+		t1.a = 20; // 인스턴스변수는 new키워드를 사용해 stack에 올라가야 값 변경 가능
+	}
+}
+```
+- 스태틱을 사용하면
+	- 변수는 하나의 변수로 데이터가 공유 된다. 클래스명.변수명
+	- 메서드는 인스턴스를 통해 메서드를 호출하지 않고 바로 사용가능하다. 클래스명.메서드명
+
+- 스태틱을 사용하지 않으면
+	- 변수는 각각의 인스턴스가 개별적으로 데이터를 갖게 된다. 인스턴스1.변수, 인스턴스2.변수
+	- 메서드는 new키워드를 사용하여 생성된 인스턴스를 통해 메서드를 호출해야한다. 인스턴스.메서드()
+
+## DTO, DAO
+### DTO (Data Transfer Object)
+- 데이터 전송 객체
+- 계층(Layer)간 데이터를 주고받기 위한 객체
+- 계층(Layer)란 Controller, View, Business, Persistent 레이어 등을 말한다
+- 일반적으로 DB에서 가져온 데이터를 다른 계층에서 사용하기 적합한 형식으로 변환하여 전송하는데 사용
+- DTO 속성은 getter / setter 메서드로 구성
+- 데이터 전송에만 사용
+### DAO (Data Access Object)
+- 데이터 접근(액세스) 객체(DB의 data에 접근하기 위한 객체)
+- DB에서 데이터를 가져오거나 DB에 데이터를 저장하는 등 CRUD작업을 수행하는 객체
+- 비즈니스 계층과 DB 간의 인터페이스 역할
+- DAO를 static 으로 만들면 편하다.
+- DTO와 DAO는 항상 한세트로 만든다고 생각하면된다
+
+## static, DTO, DAO 활용 예제
+```java
+class Client {
+	private int num;
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+}
+
+class staticClientDAO {
+	public static Vector<Client> clientList = new Vector<Client>();
+	public static void addClient(Client c) {
+		clientList.add(c);
+	}
+}
+
+public class 스태틱1_개념03_기본이론3 {
+	public static void main(String[] args) {
+		
+		for (int i = 0; i < 5; i++) {
+			Client c = new Client();
+			c.setNum(i);
+			staticClientDAO.addClient(c);
+		}
+		
+		for (Client c : staticClientDAO.clientList) {
+			System.out.println(c.getNum());
+		}
+	}
+}
+```
+
+## 스태틱 활용시 주의 할점 예제
+```java
+class StaticTest {
+	private static int score; // 내용이 담긴 변수는 static 으로 만들면 공유되어 버린다.
+	private static String name;
+	
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		StaticTest.score = score;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		StaticTest.name = name;
+	}
+}
+
+class StaticTestDAO {
+	public static Vector<StaticTest> testList = new Vector<StaticTest>();
+	
+	public static void addTest(StaticTest test) {
+		testList.add(test);
+	}
+	public static void printTestList() {
+		for (StaticTest test : testList) {
+			System.out.print(test.getName());
+			System.out.println(" " + test.getScore());
+		}
+	}
+}
+
+public class 스태틱1_개념02_기본이론2 {
+	public static void main(String[] args) {
+		/*
+		 * [스태틱 활용시 주의 할점] DAO 는 static 으로 만들어도되지만 
+		 * 객체는 개수를 따로count 하는 변수를 제외하곤 실제
+		 * 내용이 들어가는 변수를 static으로 만들면 안된다.
+		 */
+		String[] dataName = { "aaa", "bbb", "ccc", "ddd" };
+		int[] dataScore = { 43, 54, 12, 94 };
+		
+		for (int i = 0; i < dataName.length; i++) {
+			StaticTest t = new StaticTest();
+			
+			t.setName(dataName[i]);
+			t.setScore(dataScore[i]);
+			
+			StaticTestDAO.addTest(t);
+		}
+		StaticTestDAO.printTestList();
+	}
+}
+```
+## 스태틱 활용 예제2
+```java
+class HeartCounter {
+	public static int count;
+	
+	public HeartCounter() {
+		HeartCounter.count += 1;
+	}
+}
+
+public class 스태틱1_개념04_기본이론4 {
+	public static void main(String[] args) {
+		
+		for(int i = 0; i < 10; i++) {
+			HeartCounter p = new HeartCounter();
+		}
+		// 현재까지 생성된 좋아요 갯수를 알수있다.
+		System.out.println(HeartCounter.count);
+	}
+}
+```
