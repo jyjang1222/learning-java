@@ -8,7 +8,8 @@ class Student1 {
 		this.name = name;
 		this.age = age;
 	}
-	
+	// getter, setter메서드 자동완성 단축키
+	// alt + shift + s, r
 	public void setName(String name) {
 		this.name = name;
 	}

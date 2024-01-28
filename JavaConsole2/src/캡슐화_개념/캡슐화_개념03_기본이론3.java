@@ -13,7 +13,6 @@ class Product {
 	// getter, setter메서드 자동완성 단축키
 	// alt + shift + s, r
 	
-	
 	// set메서드 : 값의 유효성 검사 및 저장
 	public void setPrice(int price) {
 		this.price = price;

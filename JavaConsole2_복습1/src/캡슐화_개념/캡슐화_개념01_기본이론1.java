@@ -9,7 +9,7 @@ class Test01 {
 	
 	// 접근제어가 없는 것을 default 라고 부른다.
 	// 지금까지는 접근제어자를 사용하지 않았지만, 정확하게 명시해주는 것이 좋다.
-	// 이제부터 아무것도 안적는것은 권장하지않는다. 
+	// 이제부터 아무것도 안적는것은 권장하지않는다.
 	int c;
 	
 	// public은 어느 클래스에서도 접근가능한 것
@@ -24,13 +24,12 @@ public class 캡슐화_개념01_기본이론1 {
 
 	public static void main(String[] args) {
 		Test01 t = new Test01();
-		
 		// 1. private을 붙인 변수는 클래스 내부에서만 사용이 가능하다.
 		// 2. 다른 클래스에서는 사용할 수 없다.
 		// The field Test01.a is not visible (field는 변수)
 		// t.a = 10;	// 에러
 		// t.b = 20;	// 에러
-				
+		
 		t.c = 30;
 		t.d = 40;
 	}
