@@ -1,4 +1,4 @@
-package 콜렉션종류_개념;
+package 콜렉션_개념;
 
 import java.util.ArrayList;
 import java.util.Vector;

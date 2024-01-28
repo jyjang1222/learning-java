@@ -1,4 +1,4 @@
-package 콜렉션벡터_개념;
+package 콜렉션_개념;
 
 /*
 collection : 데이터를 저장하기 위한 유용한 클래스

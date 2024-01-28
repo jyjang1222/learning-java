@@ -13,17 +13,18 @@ public class 파일입출력_개념01_저장1 {
 		
 		String path = "src/파일입출력_개념/";
 		String fileName = "file1.txt"; //프로젝트 폴더에 생성됨
+		String fileContent = "김철수,10\\n이영희,30\\n박만수,50";
 		
-		FileWriter fw = null;// try 밖에서 사용을 위해 보통 밖에 변수를 만든다.
+		FileWriter fw = null; // try 밖에서 사용을 위해 보통 밖에 변수를 만든다.
 		
 		try {
 			fw = new FileWriter(path + fileName);
-			fw.write("김철수,10\\\\n이영희,30\\\\n박만수,50");
-		} catch(Exception e) {
+			fw.write(fileContent);
+			fw.close();
+		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {fw.close();} catch(Exception e) {e.printStackTrace();}
 		}
+
 	}
 
 }

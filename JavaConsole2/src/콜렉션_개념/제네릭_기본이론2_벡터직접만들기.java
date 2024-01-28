@@ -1,4 +1,4 @@
-package 제네릭_개념;
+package 콜렉션_개념;
 
 class MyVector2 {
 	
