@@ -897,7 +897,7 @@ t.d = 40;
 - 접근제어자 : public(공공의), protected(추후 설명), default(접근제어자가 없는 상태), private(개인의)
 
 # 12. 스태틱
-## static
+## 스태틱 활용 예제1
 ```java
 class Test01 {
 	public int a;			// non-static 변수 = 인스턴스 변수 (new할시 초기화)
@@ -924,7 +924,7 @@ public class 스태틱1_개념01_기본이론1 {
 }
 ```
 
-## DAO, DTO
+## DTO, DAO
 ### DTO (Data Transfer Object)
 - 데이터 전송 객체
 - 계층(Layer)간 데이터를 주고받기 위한 객체
@@ -939,7 +939,7 @@ public class 스태틱1_개념01_기본이론1 {
 - DAO를 static 으로 만들면 편하다.
 - DTO와 DAO는 항상 한세트로 만든다고 생각하면된다
 
-## static, DAO, DTO 활용 예제
+## static, DTO, DAO 활용 예제
 ```java
 class Client {
 	private int num;
@@ -978,19 +978,19 @@ public class 스태틱1_개념03_기본이론3 {
 ## 스태틱 활용시 주의 할점 예제
 ```java
 class StaticTest {
-	static private int score; // 내용이 담긴 변수는 static 으로 만들면 공유되어 버린다.
-	static private String name;
+	private static int score; // 내용이 담긴 변수는 static 으로 만들면 공유되어 버린다.
+	private static String name;
 	
-	public static int getScore() {
+	public int getScore() {
 		return score;
 	}
-	public static void setScore(int score) {
+	public void setScore(int score) {
 		StaticTest.score = score;
 	}
-	public static String getName() {
+	public String getName() {
 		return name;
 	}
-	public static void setName(String name) {
+	public void setName(String name) {
 		StaticTest.name = name;
 	}
 }
@@ -1011,19 +1011,44 @@ class StaticTestDAO {
 
 public class 스태틱1_개념02_기본이론2 {
 	public static void main(String[] args) {
-
+		/*
+		 * [스태틱 활용시 주의 할점] DAO 는 static 으로 만들어도되지만 
+		 * 객체는 개수를 따로count 하는 변수를 제외하곤 실제
+		 * 내용이 들어가는 변수를 static으로 만들면 안된다.
+		 */
 		String[] dataName = { "aaa", "bbb", "ccc", "ddd" };
 		int[] dataScore = { 43, 54, 12, 94 };
 		
 		for (int i = 0; i < dataName.length; i++) {
 			StaticTest t = new StaticTest();
 			
-			StaticTest.setName(dataName[i]);
-			StaticTest.setScore(dataScore[i]);
+			t.setName(dataName[i]);
+			t.setScore(dataScore[i]);
 			
 			StaticTestDAO.addTest(t);
 		}
 		StaticTestDAO.printTestList();
+	}
+}
+```
+## 스태틱 활용 예제2
+```java
+class Product{
+	public static int count;
+	
+	public Product() {
+		Product.count += 1;
+	}
+}
+
+public class 스태틱1_개념04_기본이론4 {
+	public static void main(String[] args) {
+		for(int i = 0; i < 10; i++) {
+			Product p = new Product();
+		}
+		
+		// 현재까지 생성된 Product갯수를 알수있다. (메모리 누수확인용)
+		System.out.println(Product.count);
 	}
 }
 ```
