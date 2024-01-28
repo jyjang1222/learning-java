@@ -925,28 +925,6 @@ public class 스태틱1_개념01_기본이론1 {
 ```
 
 ## DAO, DTO
-```java
-class Client {	
-	private int number;
-	private String name;
-}
-
-class StaticClientDAO{
-	public static Vector<Client> clientList = new Vector<Client>();	
-	public static void addClient(Client c) {
-		clientList.add(c);
-	}	
-}
-//DTO와 DAO는 항상 한세트로 만든다고 생각하면된다
-public class 스태틱1_개념03_기본이론3 {
-	public static void main(String[] args) {
-		// static 활용 (1) DAO를 static 으로 만들면 편하다.
-		for(int i = 0; i < 10; i++) {
-			StaticClientDAO.addClient(new Client());
-		}
-	}
-}
-```
 ### DTO (Data Transfer Object)
 - 데이터 전송 객체
 - 계층(Layer)간 데이터를 주고받기 위한 객체
@@ -958,6 +936,8 @@ public class 스태틱1_개념03_기본이론3 {
 - 데이터 접근(액세스) 객체(DB의 data에 접근하기 위한 객체)
 - DB에서 데이터를 가져오거나 DB에 데이터를 저장하는 등 CRUD작업을 수행하는 객체
 - 비즈니스 계층과 DB 간의 인터페이스 역할
+- DAO를 static 으로 만들면 편하다.
+- DTO와 DAO는 항상 한세트로 만든다고 생각하면된다
 
 ## static, DAO, DTO 활용 예제
 ```java
