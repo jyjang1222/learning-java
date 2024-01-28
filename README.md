@@ -961,8 +961,42 @@ public class 스태틱1_개념03_기본이론3 {
 
 ## static, DAO, DTO 활용 예제
 ```java
-import java.util.Vector;
+class Client {
+	private int num;
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+}
 
+class staticClientDAO {
+	public static Vector<Client> clientList = new Vector<Client>();
+	public static void addClient(Client c) {
+		clientList.add(c);
+	}
+}
+
+public class 스태틱1_개념03_기본이론3 {
+	public static void main(String[] args) {
+		
+		for (int i = 0; i < 5; i++) {
+			Client c = new Client();
+			c.setNum(i);
+			staticClientDAO.addClient(c);
+		}
+		
+		for (Client c : staticClientDAO.clientList) {
+			System.out.println(c.getNum());
+		}
+	}
+}
+```
+
+## 스태틱 활용시 주의 할점 예제
+```java
 class StaticTest {
 	static private int score; // 내용이 담긴 변수는 static 으로 만들면 공유되어 버린다.
 	static private String name;
