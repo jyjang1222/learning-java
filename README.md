@@ -923,6 +923,13 @@ public class 스태틱1_개념01_기본이론1 {
 	}
 }
 ```
+- 스태틱을 사용하면
+	- 변수는 하나의 변수로 데이터가 공유 된다. 클래스명.변수명
+	- 메서드는 인스턴스를 통해 메서드를 호출하지 않고 바로 사용가능하다. 클래스명.메서드명
+
+- 스태틱을 사용하지 않으면
+	- 변수는 각각의 인스턴스가 개별적으로 데이터를 갖게 된다. 인스턴스1.변수, 인스턴스2.변수
+	- 메서드는 new키워드를 사용하여 생성된 인스턴스를 통해 메서드를 호출해야한다. 인스턴스.메서드()
 
 ## DTO, DAO
 ### DTO (Data Transfer Object)
@@ -1033,22 +1040,22 @@ public class 스태틱1_개념02_기본이론2 {
 ```
 ## 스태틱 활용 예제2
 ```java
-class Product{
+class HeartCounter {
 	public static int count;
 	
-	public Product() {
-		Product.count += 1;
+	public HeartCounter() {
+		HeartCounter.count += 1;
 	}
 }
 
 public class 스태틱1_개념04_기본이론4 {
 	public static void main(String[] args) {
-		for(int i = 0; i < 10; i++) {
-			Product p = new Product();
-		}
 		
-		// 현재까지 생성된 Product갯수를 알수있다. (메모리 누수확인용)
-		System.out.println(Product.count);
+		for(int i = 0; i < 10; i++) {
+			HeartCounter p = new HeartCounter();
+		}
+		// 현재까지 생성된 좋아요 갯수를 알수있다.
+		System.out.println(HeartCounter.count);
 	}
 }
 ```
