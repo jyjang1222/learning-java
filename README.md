@@ -708,9 +708,9 @@ import java.io.FileWriter;
 
 // 세이브 파일 만들기 FileWriter
 // 1) 변수생성          	==>  FileWriter fw = null; 
-// 1) 파일 생성          	==>  fw = new FileWriter("파일이름"); 
-// 2) 파일에 내용 저장 		==>  fw.write(저장할내용);
-// 3) 파일닫기           	==>  fw.close(); 
+// 1) 파일 생성          ==>  fw = new FileWriter("파일이름"); 
+// 2) 파일에 내용 저장 	==>  fw.write(저장할내용);
+// 3) 파일닫기           ==>  fw.close(); 
 		
 String path = "src/파일입출력_개념/";
 String fileName = "file1.txt"; //프로젝트 폴더에 생성됨
@@ -720,11 +720,9 @@ FileWriter fw = null;// try 밖에서 사용을 위해 보통 밖에 변수를 �
 try {
 	fw = new FileWriter(path + fileName);
 	fw.write("김철수,10\\\\n이영희,30\\\\n박만수,50");
-	// fw.close(); 오류발생. close도 예외처리를 해주어함
+	fw.close();
 } catch(Exception e) {
 	e.printStackTrace();
-} finally {
-	try {fw.close();} catch(Exception e) {e.printStackTrace();}
 }
 ```
 
@@ -732,11 +730,10 @@ try {
 ```java
 import java.io.FileReader;
 
-// 1) FileReader fr = null; 			// 변수선언
+// 1) FileReader fr = null; 		// 변수선언
 // 1) fr = new FileReader(fileName); 	// 저장된 파일을 읽어온다.	
-// 2) fr.read(); 						// 한글자씩 int로 가져온다. 
-												// 가져올 내용이 없으면 -1이 저장된다.
-// 3) fr.close(); 						// 사용후 반드시 닫아야 된다.
+// 2) fr.read(); 			// 한글자씩 int로 가져온다. 								// 가져올 내용이 없으면 -1이 저장된다.
+// 3) fr.close(); 			// 사용후 반드시 닫아야 된다.
 		
 String fileName = "src/파일입출력_개념/file1.txt";
 String data = "";
@@ -769,6 +766,7 @@ import java.io.FileReader;
 
 String fileName = "src/파일입출력_개념/file.txt";
 String data = "";
+
 FileReader fr = null;
 File file = new File(fileName);
 		
