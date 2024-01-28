@@ -1,10 +1,10 @@
 package 스태틱_개념;
 
 class Product{
-	static public int count;
+	public static int count;
 	
 	public String name;
-	public Product(){
+	public Product() {
 		Product.count += 1;
 	}
 }

@@ -16,7 +16,7 @@ public class 스태틱1_개념01_기본이론1 {
 
 	public static void main(String[] args) {
 		// static 키워드 
-		// static키워드가 붙은 변수와 메서드는 실행하자마자 바로 static 메모리영역에 할당이 돼서 
+		// static키워드가 붙은 변수와 메서드는 실행하면 바로 static 메모리영역에 할당이 돼서 
 	    // new 를 하지 않아도 사용할 수 있다.
 		// 스태틱 메서드는 호출시에 stack에 올라감
 	

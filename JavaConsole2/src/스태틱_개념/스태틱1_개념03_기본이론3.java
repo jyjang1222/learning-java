@@ -5,7 +5,7 @@ import java.util.Vector;
 //DTO (Data Transfer Object)
 //데이터 전송 객체
 //계층(Layer)간 데이터를 주고받기 위한 객체
-//계층(Layer)이란 Controller, View, Business, Persistent 레이어 등을 말한다
+//계층(Layer)란 Controller, View, Business, Persistent 레이어 등을 말한다
 //일반적으로 DB에서 가져온 데이터를 다른 계층에서 사용하기 적합한 형식으로 변환하여 전송하는데 사용
 //DTO 속성은 getter / setter 메서드로 구성
 //데이터 전송에만 사용

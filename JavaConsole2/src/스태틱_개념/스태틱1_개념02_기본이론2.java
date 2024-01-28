@@ -72,7 +72,7 @@ public class 스태틱1_개념02_기본이론2 {
 		/*
 		 * [스태틱 활용시 주의 할점] DAO 는 static 으로 만들어도되지만 
 		 * 객체는 개수를 따로count 하는 변수를 제외하곤 실제
-		 * 내용이들어가는 변수를 static으로 만들면 안된다.
+		 * 내용이 들어가는 변수를 static으로 만들면 안된다.
 		 */
 		StaticTestDAO STD = new StaticTestDAO();
 
