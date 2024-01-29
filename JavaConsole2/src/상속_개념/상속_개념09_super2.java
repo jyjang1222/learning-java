@@ -1,7 +1,7 @@
 package 상속_개념;
 
 //[super]
-//-상속받은 자식클래스에서 부모의 자원을 사용할때 사용함.
+//상속받은 자식클래스에서 부모의 자원을 사용할때 사용함.
 
 class Test06{	
 	void test1() {
@@ -10,7 +10,7 @@ class Test06{
 }
 
 class Test06Child extends Test06{
-	
+	@Override
 	void test1() {
 		System.out.println("여기는 자식 test1()");
 	}

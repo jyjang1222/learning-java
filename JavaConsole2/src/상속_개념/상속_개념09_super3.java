@@ -1,7 +1,7 @@
 package 상속_개념;
 
 //[super]
-//-상속받은 자식클래스에서 부모의 자원을 사용할때 사용함.
+//상속받은 자식클래스에서 부모의 자원을 사용할때 사용함.
 class Test07{	
 	int num;
 	String name;
@@ -16,7 +16,7 @@ class Test07Child extends Test07 {
 	int score;
 	
 	Test07Child(int num , String name , int score) {
-		super(num , name); // 부모의 생성자호출하는법 ()만붙여주면된다.
+		super(num , name); // 부모의 생성자 호출하는법 ()만 붙여주면 된다.
 		this.score = score;
 	}
 	

@@ -37,9 +37,9 @@ public class 상속_개념08_toString1 {
 		// [오버라이드]		
 		// 클래스 객체의 변수를 출력 하면 주소가 출력된다.
 		// 원형은 변수.toString() 이지만 
-		// 변수만 쓸수있게 축약형을 제공한것이다.
+		// 변수만으로도 쓸수있게 축약형을 제공한것이다.
 		
-		// toString() 은  Object 클래스에서 제공하는 함수로,
+		// toString() 은 Object 클래스에서 제공하는 함수로,
 		// 주소를 출력해준다. 
 		Test05_1 t1 = new Test05_1();		
 		System.out.println(t1);
