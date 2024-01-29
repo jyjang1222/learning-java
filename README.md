@@ -634,7 +634,8 @@ public class 상속_개념07_오버라이딩 {
 	}
 }
 ```
-- 메서드 오버라이딩은 부모 클래스에 있는 메서드를 자식 클래스가 같은 이름으로 메서드를 만들어서 사용하는 것이다. (메서드 재정의)
+- 메서드 오버라이딩은 상속 관계에서 적용된다.
+- 부모 클래스에 있는 메서드를 자식 클래스가 같은 이름으로 메서드를 만들어서 사용하는 것이다. (메서드 재정의)
 - 대표적인 예가 equals() 메서드. String클래스가 Object클래스를 상속받아 equals메서드를 재정의한 것.
 - 부모의 메서드는 실행되지않고 자식의 메서드가 우선순위를 가져간다.
 
@@ -1038,6 +1039,7 @@ public class 스태틱1_개념02_기본이론2 {
 	}
 }
 ```
+
 ## 스태틱 활용 예제2
 ```java
 class HeartCounter {
@@ -1056,6 +1058,203 @@ public class 스태틱1_개념04_기본이론4 {
 		}
 		// 현재까지 생성된 좋아요 갯수를 알수있다.
 		System.out.println(HeartCounter.count);
+	}
+}
+```
+
+# 13. 상속
+## 기본문법
+```java
+class A1 {
+	int a;
+	int b;
+}
+class B1 {
+	A1 A = new A1();
+	int c;
+	int d;
+}
+class C1 extends A1 {
+//	int a;
+//	int b;
+	int e;
+	int f;
+}
+class Test1 extends Random{}
+
+public class 상속_개념02_기본이론2 {
+	public static void main(String[] args) {
+		A1 A = new A1();
+
+		// 상속문법을 사용하지않고 상속같은 관계만들기
+		B1 B = new B1();
+		B.A.b = 10;
+		
+		C1 C = new C1();	
+		C.b = 10;
+
+		Test1 t1 = new Test1();
+		int r1 = t1.nextInt(100);
+	}
+}
+```
+- 상속 : 자식클래스 extends(키워드) 부모클래스 {}
+- 상속을 받게되면 마치 자기클래스안의 변수처럼 자유롭게 사용할수있다. 
+- 상속은 한번만 받을수있다.
+
+## 중첩상속
+```java
+class AA{
+	int aa;
+}
+class BB extends AA {
+	int bb;
+}
+class CC extends BB {
+	int cc;
+}
+
+public class 상속_개념05_중첩상속 {
+	// 클래스당 상속은 1번만 가능하다.
+	// 상속이 여러개 필요한경우 줄줄이 상속해야한다. 
+	public static void main(String[] args) {	
+		CC cc = new CC();
+		
+		// 상속을 받으면 부모변수를 마치 자기변수 처럼 사용할수있다.
+		cc.aa = 10;
+		cc.bb = 20;
+		cc.cc = 30;	
+	}
+}
+```
+
+## Object
+```java
+class ExtendsTest1 extends Object {}
+class ExtendsTest2 {}
+class TestA /* extends Object */ {	
+	int a;
+}
+
+public class 상속_개념06_오브젝트 {
+	public static void main(String[] args) {
+		TestA a = new TestA();
+//		a.
+		ExtendsTest1 t1 = new ExtendsTest1();
+		ExtendsTest2 t2 = new ExtendsTest2();
+		//t1.
+		//t2.
+	}
+}
+```
+- Object 클래스는 모든 클래스의 최상위 부모 클래스 이다.
+- 자바의 모든 클래스들은 자바에서 미리제공하는 Object 클래스를 내부적으로 자동으로 상속받게 되어있다.
+- 변수에 .을 찍어보면 알수있다.
+
+## 어노테이션, toString
+```java
+class Test05_1{	}
+class Test05_2 /*extends Object*/ {	
+	int a;
+	int b;
+	
+	// @(어노테이션) 키워드
+	// 기능을 가진 주석
+	
+	// @Override (기능을 가진 주석)
+	// 작성시 부모의 선언부와 동일하게 작성해야 문법 오류가 나지 않는다.
+	// 생략가능하지만 작성함으로써 엄격함 유지
+	
+	@Override
+	public String toString()
+	{
+		return a + ", " + b;
+	}
+	
+	// 기존 출력법
+	public void print() {
+		System.out.println(a + " , " + b);
+	}
+	
+//	부모에 없는 메소드 위에 붙여보면 에러가난다.
+//	@Override 
+//	void test() {}	
+}
+
+public class 상속_개념08_toString1 {
+	public static void main(String[] args) {
+		// [오버라이드]		
+		// 클래스 객체의 변수를 출력 하면 주소가 출력된다.
+		// 원형은 변수.toString() 이지만 
+		// 변수만으로도 쓸수있게 축약형을 제공한것이다.
+		
+		// toString() 은 Object 클래스에서 제공하는 함수로,
+		// 주소를 출력해준다. 
+		Test05_1 t1 = new Test05_1();		
+		System.out.println(t1);
+		System.out.println(t1.toString());
+		// t1.toString()시 t1인스턴스 주소가 출력됨.
+		// 주소를 출력하는 toString메서드를 재활용하여 사용하면 편리
+				
+		System.out.println("--------------------");
+				
+		// 부모 Object 클래스에 있는 toString() 메서드를 
+		// 자식이 재활용해서 사용할수있다.
+		Test05_2 t2 = new Test05_2();		
+		System.out.println(t2);
+		System.out.println(t2.toString());
+	}
+}
+```
+
+## super
+```java
+class Super1 {
+	int s;
+}
+class Child1 extends Super1 {
+	int a;
+	
+	Child1 (int s, int a) {
+		this.s = s;
+		this.a = a;
+	}
+	
+	void test (int a, int s) {
+		this.a = 10; //클래스영역에 있는 인스턴스 변수 사용시 this키워드
+		a = 10;
+		s = 10;
+		super.s = 20; //부모클래스에 있는 인스턴스 변수 사용시 super키워드
+		System.out.println("부모메서드");
+	}
+}
+class Child2 extends Child1 {
+	int c;
+	
+	Child2 (int s, int a, int c) {
+		super(s, a);  // 부모의 생성자호출하는법 ()만붙여주면된다.
+		this.c = c;
+	}
+	
+	void test() {
+		System.out.println("자식메서드");
+	}
+	void play() {
+		test(); // 자식의 test()를 실행함.
+		super.test(20, 20); // 부모의 test()를 실행함.
+	}
+	
+	@Override
+	public String toString() {
+		return s + ", " + a + ", " + c;
+	}
+}
+
+public class 상속_개념09_super1 {
+	public static void main(String[] args) {
+		Child2 test = new Child2(10, 20, 30);
+		test.play();
+		System.out.println(test.toString());
 	}
 }
 ```
