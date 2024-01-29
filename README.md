@@ -1038,6 +1038,7 @@ public class 스태틱1_개념02_기본이론2 {
 	}
 }
 ```
+
 ## 스태틱 활용 예제2
 ```java
 class HeartCounter {
@@ -1059,3 +1060,92 @@ public class 스태틱1_개념04_기본이론4 {
 	}
 }
 ```
+
+# 13. 상속
+## 기본문법
+```java
+class A1 {
+	int a;
+	int b;
+}
+class B1 {
+	A1 A = new A1();
+	int c;
+	int d;
+}
+class C1 extends A1 {
+//	int a;
+//	int b;
+	int e;
+	int f;
+}
+class Test1 extends Random{}
+
+public class 상속_개념02_기본이론2 {
+	public static void main(String[] args) {
+		A1 A = new A1();
+
+		// 상속문법을 사용하지않고 상속같은 관계만들기
+		B1 B = new B1();
+		B.A.b = 10;
+		
+		C1 C = new C1();	
+		C.b = 10;
+
+		Test1 t1 = new Test1();
+		int r1 = t1.nextInt(100);
+	}
+}
+```
+- 상속 : 자식클래스 extends(키워드) 부모클래스 {}
+- 상속을 받게되면 마치 자기클래스안의 변수처럼 자유롭게 사용할수있다. 
+- 상속은 한번만 받을수있다.
+
+## 중첩상속
+```java
+class AA{
+	int aa;
+}
+class BB extends AA {
+	int bb;
+}
+class CC extends BB {
+	int cc;
+}
+
+public class 상속_개념05_중첩상속 {
+	// 클래스당 상속은 1번만 가능하다.
+	// 상속이 여러개 필요한경우 줄줄이 상속해야한다. 
+	public static void main(String[] args) {	
+		CC cc = new CC();
+		
+		// 상속을 받으면 부모변수를 마치 자기변수 처럼 사용할수있다.
+		cc.aa = 10;
+		cc.bb = 20;
+		cc.cc = 30;	
+	}
+}
+```
+
+## Object
+```java
+class ExtendsTest1 extends Object {}
+class ExtendsTest2 {}
+class TestA /* extends Object */ {	
+	int a;
+}
+
+public class 상속_개념06_오브젝트 {
+	public static void main(String[] args) {
+		TestA a = new TestA();
+//		a.
+		ExtendsTest1 t1 = new ExtendsTest1();
+		ExtendsTest2 t2 = new ExtendsTest2();
+		//t1.
+		//t2.
+	}
+}
+```
+- Object 클래스는 모든 클래스의 최상위 부모 클래스 이다.
+- 자바의 모든 클래스들은 자바에서 미리제공하는 Object 클래스를 내부적으로 자동으로 상속받게 되어있다.
+- 변수에 .을 찍어보면 알수있다. 
