@@ -14,7 +14,7 @@ package 추상화_개념;
 //1) 클래스 앞에 abstract를 붙여줌
 abstract class A {
 	// 2) 메서드 앞에 abstract를 붙여줌
-	abstract void test();  //구현을 하지않는 다는 표현으로 {}를 없애고 ';' 을 붙임 
+	abstract void test();  //구현을 하지않는다는 표현으로 {}를 없애고 ';' 을 붙임 
 	
 	void test2() {} // abstract 가 붙지않은 메서드도 만들수있다. 
 }
