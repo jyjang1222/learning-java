@@ -1116,11 +1116,11 @@ public class 스태틱1_개념04_기본이론4 {
 # 13. 상속
 ## 상속의 종류 3가지
 ### (일반)상속
-	- extends, 한번만 상속 가능
+- extends, 한번만 상속 가능
 ### 추상화
-	- abstract 부모클래스
-	- abstract 메서드();
-	- 부모의 abstract메서드를 자식이 반드시 구현implement(중괄호)해야 한다. 
+- abstract 부모클래스
+- abstract 메서드();
+- 부모의 abstract메서드를 자식이 반드시 구현implement(중괄호)해야 한다. 
 ### 인터페이스
 
 ### 상속의 장점
