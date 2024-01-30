@@ -1484,7 +1484,10 @@ public class 추상화_개념05_형변환2 {
 }
 ```
 
-## 다형성 예제
+# 15. 인터페이스
+
+# 16. 다형성
+## 다형성 예제1
 ```java
 abstract class Shape {
 	public abstract void draw();
