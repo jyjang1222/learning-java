@@ -1309,3 +1309,241 @@ public class 상속_개념09_super1 {
 	}
 }
 ```
+
+# 14. 추상화
+## 추상화(abstract)
+```java
+/*
+추상화(abstract)
+    1) 부모클래스 앞에 abstract 를 붙여준다.
+    2) 자식클래스에서 구현시킬 메서드명 앞에 abstract 를 붙여준다.
+    3) 원래메서드는{} 를 사용하여 내용을 구현하는데  {}를 생략하고 ; 을 붙여준다.
+*/
+//1) 클래스 앞에 abstract를 붙여줌
+abstract class A {
+	// 2) 메서드 앞에 abstract를 붙여줌
+	abstract void test();  //구현을 하지않 다는 표현으로 {}를 없애고 ';' 을 붙임 
+	
+	void test2() {} // abstract 가 붙지않은 메서드도 만들수있다. 
+}
+
+//3) 클래스 A를 상속받자마자 오류가 발생함
+class B extends A {
+	// 4) 강제로 만들어야하는 메서드
+	void test() {
+		
+	}
+}
+```
+- 부모클래스에서는 메서드 이름만 만들고 구체적인 내용은 자식메서드에서 구현하도록 하는 것 
+
+## 추상화 예제
+```java
+/*
+상속의 종류 3가지
+(1) (일반)상속
+	extends, 한번만 상속 가능
+(2) 추상화
+	abstract 부모클래스
+	abstract 메서드();
+	부모의 abstract메서드를 자식이 반드시 구현implement(중괄호)해야 한다. 
+(3) 인터페이스
+
+상속의 장점
+기존 int[] arr = {1, 2}
+상속 Monster[] list = {cat, dog}
+공통의 부모를 만들면 자식들을 부모 배열로 저장 가능
+*/
+abstract class Monster {
+	abstract void skill();
+	abstract void attack(); // 어차피 서로다른 기능들을 재정의 해야하니 추상메서드로 만듬
+	abstract void deffense();
+}
+class Cat extends Monster {
+	void fishAttack() {
+		System.out.println("물고기 공격!");
+	}
+	void attack() {
+		System.out.println("고양이 공격");
+	}
+	@Override
+	void skill() {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	void deffense() {
+		// TODO Auto-generated method stub
+	}
+}
+
+class Dog extends Monster {
+	@Override
+	void skill() {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	void attack() {
+		System.out.println("강아지 공격");
+	}
+	@Override
+	void deffense() {
+		// TODO Auto-generated method stub
+	}
+}
+public class 추상화_개념03_기본이론3 {
+	public static void main(String[] args) {
+		Cat cat = new Cat();
+		Dog dog = new Dog();
+		
+		Monster[] monsterList = new Monster[2];
+		monsterList[0] = cat;
+		monsterList[1] = dog;
+		monsterList[0].attack();
+		
+		Cat c = (Cat)monsterList[0];
+		c.fishAttack();
+	}
+}
+```
+
+## 클래스 형변환
+```java
+class Parent1 {
+	int a;
+}
+class Child1 extends Parent1 {
+	int b;
+}
+
+public class 추상화_개념04_형변환1 {
+	public static void main(String[] args) {
+		Parent1 p = new Parent1();
+		Child1 c = new Child1();
+		
+//		a	=	a, b
+		Parent1 p2 = new Child1(); // 부모타입으로 자식 인스턴스 생성.
+//      	p2.a 실제 인스턴스는 자식이라 인스턴스변수 a,b가 생성되며, a는 부모자식 모두 가지고있기 떄문에 접근가능.
+//		p2.b 타입이 부모이기 때문에 자식이 가진 인스턴스 변수b 에는 접근불가
+		
+		Child1 c2 = (Child1)p2;
+//		c2.b 타입을 다시 자식으로 바꾸어주면 b접근가능
+		
+//		a, b	=	a (멤버b는 비게돼서 생성불가)
+//		Child1 c3 = new Parent1(); // 자식타입으로 부모 인스턴스 생성. 당연히 안된다. 
+//      	부모클래스에는 인스턴스 변수 b가 없기 때문에 자식타입으로 부모인스턴스 선언 불가
+//		자식 타입으로 생성하려고 하는데 부모 생성자를 사용하면 해당 자식 타입에 선언된 멤버b는 비게됨
+	}
+}
+
+```
+
+## 클래스 형변환2
+### instanceof
+```java
+class Parent {
+	public int a;
+}
+
+class Child extends Parent {
+	public int b;
+}
+
+public class 추상화_개념05_형변환2 {
+	public static void main(String[] args) {
+		
+		Parent p1 = new Parent(); 
+		
+		Parent p2 = new Child();  
+		// new Parent();는 부모만 생성되기때문에 child에 담을 수 없다.
+		// Child c1 = new Parent(); 	// 이렇게 하면 에러가 발생된다. 	
+		// Child c2 = (Child)p1; 		// 이렇게 하면 에러가 발생된다.
+				
+		Child c3 = new Child();
+		
+		Parent p3 = (Parent)c3;
+		
+		System.out.println("-----------------------------------");
+		
+		// instanceof 키워드를 사용하면 좀더 확실히 예외처리 할수있다.
+		
+		if (p1 instanceof Child) {
+			Child ch = (Child)p1;
+			System.out.println("형변환 성공1");
+		} else {
+			System.out.println("형변환 불가1");
+		}
+		
+		if (p2 instanceof Child) {
+			Child ch = (Child)p2;
+			System.out.println("형변환 성공2");
+		} else {
+			System.out.println("형변환 불가2");
+		}
+			
+	}
+}
+```
+
+## 다형성 예제
+```java
+abstract class Shape {
+	public abstract void draw();
+}
+
+//	Shape 클래스를 상속받아 Point 클래스를 만든다.
+class Point extends Shape {
+	@Override
+	public void draw() {
+		System.out.println("점을 찍는다.");
+	}
+}
+
+//	Shape 클래스를 상속받아 Line 클래스를 만든다.
+class Line extends Shape {
+	@Override
+	public void draw() {
+		System.out.println("선을 그린다.");
+	}
+}
+
+//	Shape 클래스를 상속받아 Circle 클래스를 만든다.
+class Circle extends Shape {
+	@Override
+	public void draw() {
+		System.out.println("원을 그린다.");
+	}
+}
+
+//	Shape 클래스를 상속받아 Rect 클래스를 만든다.
+class Rect extends Shape {
+	@Override
+	public void draw() {
+		System.out.println("사각형을 그린다.");
+	}
+}
+
+//	Shape 클래스를 상속받아 TriAngle 클래스를 만든다.
+class TriAngle extends Shape {
+	@Override
+	public void draw() {
+		System.out.println("삼각형을 그린다.");
+	}
+}
+
+public class 추상화_개념06_다형성그리기 {
+	public static void main(String[] args) {
+		// === 다형성 === 
+		// 서로 다른클래스는 배열에 저장불가능하기때문에
+		// 공통부모를 상속받고
+		// 부모의 클래스로 배열을 만들면 한배열에 서로다른클래스들을 저장할수있다.
+		Shape[] shapes = {new Point(), new Line(), new Circle(), new Rect(), new TriAngle()};
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("원하는 작업을 선택하세요 : ");
+		int menu = sc.nextInt();
+		
+		shapes[menu - 1].draw();
+
+	}
+}
+```
