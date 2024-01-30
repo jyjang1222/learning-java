@@ -897,6 +897,57 @@ t.d = 40;
 ```
 - 접근제어자 : public(공공의), protected(추후 설명), default(접근제어자가 없는 상태), private(개인의)
 
+## 접근제어자2
+```java
+package 캡슐화_개념;
+
+public class 접근제어자_개념01_기본이론1 {
+	private int a;
+	public int b;
+	protected int c;
+	int d; // default 는 사용하지않는게 좋다.
+}
+```
+```java
+package 캡슐화_개념;
+
+public class 접근제어자_개념02_기본이론2 {
+	public static void main(String[] args) {
+		접근제어자_개념01_기본이론1 t = new 접근제어자_개념01_기본이론1();
+		// t.a = 10; // private 은 내부 클래스 에서만 사용가능 	
+		t.b = 10; // 같은패키지에 있으면 public 사용가능
+		t.c = 20; // 같은패키지에 있으면 protected 사용가능
+		t.d = 30; // 같은패키지에 있으면 default 사용가능
+	}
+}
+```
+```java
+package 실습;
+
+import 캡슐화_개념.접근제어자_개념01_기본이론1;
+
+class L2_Child extends 접근제어자_개념01_기본이론1 {
+	public L2_Child() {
+		//a = 10; //private 이므로 접근 불가
+		b = 20; //public 이므로 어느클래스에서나 사용가능
+		c = 30; //protected 이므로 서로다른 패키지이지만 상속받은 자식클래스 내에서는 public
+		//d = 40; //default 는 패키지가 달라지면 private 이므로 private
+	}
+}
+
+public class 접근제어자_개념03_실습예제 {
+	public static void main(String[] args) {
+		L2_Child child1 = new L2_Child();
+		child1.b = 10;
+		//child1.c = 20; 접근불가
+	}
+}
+```
+- public : 프로젝트내 모든 클래스에서 사용가능
+- protected  : 패키지가 같으면 public, 패키지가 다르면 자식클래스내에서는 public, 자식클래스내가 아니면 private
+- default : 패키지가 같으면 public, 패키지가 다르면 private
+- private : 내부 클래스에서만 사용가능, 타 클래스에서 사용불가
+
 # 12. 스태틱
 ## 스태틱 활용 예제1
 ```java
