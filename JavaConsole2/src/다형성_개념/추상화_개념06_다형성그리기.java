@@ -1,4 +1,4 @@
-package 추상화_개념;
+package 다형성_개념;
 
 import java.util.Scanner;
 

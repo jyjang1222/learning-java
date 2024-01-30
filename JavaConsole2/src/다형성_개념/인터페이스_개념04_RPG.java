@@ -1,4 +1,4 @@
-package 인터페이스_개념;
+package 다형성_개념;
 
 import java.util.Random;
 
