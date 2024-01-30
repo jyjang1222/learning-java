@@ -1114,6 +1114,22 @@ public class 스태틱1_개념04_기본이론4 {
 ```
 
 # 13. 상속
+## 상속의 종류 3가지
+### (일반)상속
+	- extends, 한번만 상속 가능
+### 추상화
+	- abstract 부모클래스
+	- abstract 메서드();
+	- 부모의 abstract메서드를 자식이 반드시 구현implement(중괄호)해야 한다. 
+### 인터페이스
+
+### 상속의 장점
+```java
+기존 int[] arr = {1, 2}
+상속 Monster[] list = {cat, dog}
+```
+- 공통의 부모를 만들면 자식들을 부모 배열로 저장 가능
+
 ## 기본문법
 ```java
 class A1 {
@@ -1339,21 +1355,6 @@ class B extends A {
 
 ## 추상화 예제
 ```java
-/*
-상속의 종류 3가지
-(1) (일반)상속
-	extends, 한번만 상속 가능
-(2) 추상화
-	abstract 부모클래스
-	abstract 메서드();
-	부모의 abstract메서드를 자식이 반드시 구현implement(중괄호)해야 한다. 
-(3) 인터페이스
-
-상속의 장점
-기존 int[] arr = {1, 2}
-상속 Monster[] list = {cat, dog}
-공통의 부모를 만들면 자식들을 부모 배열로 저장 가능
-*/
 abstract class Monster {
 	abstract void skill();
 	abstract void attack(); // 어차피 서로다른 기능들을 재정의 해야하니 추상메서드로 만듬
