@@ -1760,7 +1760,6 @@ System.out.println(sdf2.format(time));
 ```
 - 날짜 및 시간 출력 서식 지정 방법
 	- 날짜 및 시간 서식에 사용되는 영문자를 제외한 나머지 문자는 입력하는 그대로 출력된다.
-	- Date date = new Date();
 	- SimpleDateFormat sdf = new SimpleDateFormat("날짜 및 시간 서식");
 - 날짜 및 시간 서식 적용 방법
 	- sdf.format(date);
@@ -1793,5 +1792,7 @@ System.out.println("초 : " + calendar.get(Calendar.SECOND));
 - Calendar 클래스는 singleton 패턴으로 설계된 클래스이므로 객체를 만들어 사용할 수 없다.
 - 객체를 만들어 사용할 수 없는 클래스는 클래스 내부에 자신의 클래스로 만든 객체를 가지고 있고
 - 내부에 가지고 있는 클래스 객체를 얻어오는 메소드를 실행해서 사용한다.
+
 - Calendar 클래스 객체는 날짜 및 시간 정보 이외의 더 많은 정보를 가지고 있으므로 
 - SimpleDateFormat 클래스 객체를 이용해 서식을 지정하려면 getTime() 메소드로 날짜와 시간만 얻어온 후 적용시켜야 한다.
+- get() 메소드로 날짜,시간을 각각 구할수 있다.
