@@ -8,42 +8,42 @@ interface Shape2 {
 
 //Shape 클래스를 상속받아 Point 클래스를 만든다.
 class Point2 implements Shape2 {
-@Override
-public void draw() {
-	System.out.println("점을 찍는다.");
-}
+	@Override
+	public void draw() {
+		System.out.println("점을 찍는다.");
+	}
 }
 
 //Shape 클래스를 상속받아 Line 클래스를 만든다.
 class Line2 implements Shape2 {
-@Override
-public void draw() {
-	System.out.println("선을 그린다.");
-}
+	@Override
+	public void draw() {
+		System.out.println("선을 그린다.");
+	}
 }
 
 //Shape 클래스를 상속받아 Circle 클래스를 만든다.
 class Circle2 implements Shape2 {
-@Override
-public void draw() {
-	System.out.println("원을 그린다.");
-}
+	@Override
+	public void draw() {
+		System.out.println("원을 그린다.");
+	}
 }
 
 //Shape 클래스를 상속받아 Rect 클래스를 만든다.
 class Rect2 implements Shape2 {
-@Override
-public void draw() {
-	System.out.println("사각형을 그린다.");
-}
+	@Override
+	public void draw() {
+		System.out.println("사각형을 그린다.");
+	}
 }
 
 //Shape 클래스를 상속받아 TriAngle 클래스를 만든다.
 class TriAngle2 implements Shape2 {
-@Override
-public void draw() {
-	System.out.println("삼각형을 그린다.");
-}
+	@Override
+	public void draw() {
+		System.out.println("삼각형을 그린다.");
+	}
 }
 
 public class 인터페이스_개념03_기본이론3 {
