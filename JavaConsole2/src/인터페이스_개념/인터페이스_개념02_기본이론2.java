@@ -5,7 +5,7 @@ abstract class AA {
 	public void test2() {}		 	// 안붙인 메서드를 섞어서 만들수있다.
 }
 class BB extends AA {
-	public void test1() {}	  		// 자식클래스에서는 abstract 가붙어있는 메서드만은  강제구현해야한다.
+	public void test1() {}	  		// 자식클래스에서는 abstract 가붙어있는 메서드만은 강제구현해야한다.
 }
 
 interface EE {
