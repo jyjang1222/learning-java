@@ -23,7 +23,6 @@ public class 날짜_기본이론1 {
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일 E요일 a hh시 mm분 ss초");
 		System.out.println(sdf1.format(date));
-		
 		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM.dd(E) HH:mm");
 		System.out.println(sdf2.format(date));
 		
