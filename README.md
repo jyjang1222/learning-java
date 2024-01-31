@@ -1705,7 +1705,6 @@ class Bat extends Unit {
 }
 
 public class 인터페이스_개념04_RPG {
-
 	public static void main(String[] args) {
 		Unit[] unitList = new Unit[5];
 		
@@ -1722,7 +1721,77 @@ public class 인터페이스_개념04_RPG {
 		unitList[1].attack(unitList[0]);
 		System.out.println(unitList[0]);
 	}
-
 }
 
 ```
+
+# 17. 날짜
+## Date
+```java
+import java.util.Date;
+
+Date date = new Date();
+System.out.println(date); // Wed Jan 31 21:36:01 KST 2024
+// date메서드는 줄이 그여서 곧 사용금지될 함수들이다.
+// date를 사용하지말고 Calendar 클래스 사용을 권한다. 
+System.out.println("년 : " + (date.getYear() + 1900));
+```
+- Date 클래스의 활용
+	- Date 클래스 객체에서 년, 월, 일, 시, 분, 초를 얻어오려면
+	- get으로 시작하는 메소드를 사용한다.
+	- Date 클래스는 1900년을 기준으로 날짜를 처리한다.
+
+## SimpleDateFormat
+```java
+import java.text.SimpleDateFormat;
+
+SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일 E요일 a hh시 mm분 ss초");
+System.out.println(sdf1.format(date));
+SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM.dd(E) HH:mm");
+System.out.println(sdf2.format(date));
+/*
+* System.currentTimeMillis()
+* 1970년 1월 1일 자정 부터 이 메소드가 실행되는 순간까지 지나온 시간을 밀리초(1/1000초) 단위로 얻어온다.
+* 13자리의 숫자를 얻어오기 때문에 int로 처리하면 에러가 발생되므로 long로 처리해야 한다.
+*/
+long time = System.currentTimeMillis();
+System.out.println(time);
+System.out.println(sdf2.format(time));
+```
+- 날짜 및 시간 출력 서식 지정 방법
+	- 날짜 및 시간 서식에 사용되는 영문자를 제외한 나머지 문자는 입력하는 그대로 출력된다.
+	- Date date = new Date();
+	- SimpleDateFormat sdf = new SimpleDateFormat("날짜 및 시간 서식");
+- 날짜 및 시간 서식 적용 방법
+	- sdf.format(date);
+- 날짜 및 시작 출력 서식 문자의 종류
+	- 구글에서 "simpledateformat 날짜 형식" 라고 검색하기
+
+## Calendar
+```java
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+
+// Calendar calendar = new Calendar(); // new를 사용해서 객체를 생성할 수 없다.
+Calendar calendar = Calendar.getInstacne(); // 클래스 내부에서 선언된 자신의 클래스 객체를 얻어온다.
+
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd(E) HH:mm");
+System.out.println(sdf.format(calendar.getTime()))
+
+System.out.println("년 : " + calendar.get(Calendar.YEAR));
+System.out.println("월 : " + (calendar.get(Calendar.MONTH) + 1));
+System.out.println("일 : " + calendar.get(Calendar.DAY_OF_MONTH));
+		
+// 일요일(1), 월요일(2), ..., 토요일(7)
+System.out.println("요일 : " + calendar.get(Calendar.DAY_OF_WEEK));	
+		
+System.out.println("시 : " + calendar.get(Calendar.HOUR));		// 12시각
+System.out.println("시 : " + calendar.get(Calendar.HOUR_OF_DAY));	// 24시각
+System.out.println("분 : " + calendar.get(Calendar.MINUTE));
+System.out.println("초 : " + calendar.get(Calendar.SECOND));
+```
+- Calendar 클래스는 singleton 패턴으로 설계된 클래스이므로 객체를 만들어 사용할 수 없다.
+- 객체를 만들어 사용할 수 없는 클래스는 클래스 내부에 자신의 클래스로 만든 객체를 가지고 있고
+- 내부에 가지고 있는 클래스 객체를 얻어오는 메소드를 실행해서 사용한다.
+- Calendar 클래스 객체는 날짜 및 시간 정보 이외의 더 많은 정보를 가지고 있으므로 
+- SimpleDateFormat 클래스 객체를 이용해 서식을 지정하려면 getTime() 메소드로 날짜와 시간만 얻어온 후 적용시켜야 한다.
