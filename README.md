@@ -1122,13 +1122,41 @@ public class 스태틱1_개념04_기본이론4 {
 - abstract 메서드();
 - 부모의 abstract메서드를 자식이 반드시 구현implement(중괄호)해야 한다. 
 ### 인터페이스
-
-### 상속의 장점
+- interface 부모클래스
+- interface 는 다중상속이 가능
+- interface 를 상속하면 메서드를 무조건 강제구현해야 한다
+  
 ```java
-기존 int[] arr = {1, 2}
-상속 Monster[] list = {cat, dog}
+//상속
+class TestA {
+	void test() {}
+}
+class TestB extends TestA {}
+
+//추상화상속
+abstract class TestC {
+	abstract void test();
+	void test2() {};
+}
+class TestD extends TestC {
+	@Override
+	void test() {}
+}
+
+//인터페이스 상속
+interface TestE {
+	public void test();
+}
+interface TestF {
+	public void test2();
+}
+class testG implements TestE, TestF {
+	@Override
+	public void test() {}
+	@Override
+	public void test2() {}
+}
 ```
-- 공통의 부모를 만들면 자식들을 부모 배열로 저장 가능
 
 ## 상속(extends)
 ```java
@@ -1168,6 +1196,11 @@ public class 상속_개념02_기본이론2 {
 - 상속 : 자식클래스 extends(키워드) 부모클래스 {}
 - 상속을 받게되면 마치 자기클래스안의 변수처럼 자유롭게 사용할수있다. 
 - 상속은 한번만 받을수있다.
+- 공통의 부모를 만들면 자식들을 부모 배열로 저장 가능
+```java
+기존 int[] arr = {1, 2}
+상속 Monster[] list = {cat, dog}
+``` 
 
 ## 중첩상속
 ```java
@@ -1486,6 +1519,29 @@ public class 추상화_개념05_형변환2 {
 ```
 
 # 15. 인터페이스
+## 예제
+```java
+interface AA {
+	public void test1();
+}
+interface BB {
+	public void test2();
+	public void test3();
+}
+class CC implements AA, BB { // interface 는 다중상속이 된다. 
+	public void test1() {} // interface 를 상속하면 메서드를 무조건 강제구현한다.
+	public void test2() {}
+	public void test3() {}
+}
+```
+1. 인터페이스(Interface) 클래스
+- 부모 클래스앞에 interface 를 붙인다.
+- interface 상속은 extends 대신 implements 를 붙인다. 
+- interface 는 다중상속이 가능하여, 여러 interface를 상속할 수 있다.
+2. 인터페이스는 추상클래스보다 더 추상화된 클래스 (전부 강제)
+- 실제 구현된 것이 전혀없는 기본 설계도.
+- 상수와 추상 메서드만 멤버로 갖는다.
+- 인스턴스를 생성할 수 없고, 클래스 작성에 도움을 줄목적으로 사용되는 클래스
 
 # 16. 다형성
 ## 다형성 예제1
