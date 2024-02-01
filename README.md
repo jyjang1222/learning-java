@@ -1912,6 +1912,33 @@ public class 제네릭_기본이론3_제네릭벡터 {
 
 ## 래퍼클래스
 ```java
+/*
+# 래퍼 클래스(wrapper class)
+- 래퍼 클래스란, 기본 자료형을 클래스로 만들어 놓은 것을 의미한다. (해당 자료형에 필요한 기능 추가)
+	[기본형]          [래퍼 클래스]
+	byte             Byte
+	short            Short
+	int              Integer
+	long             Long
+	float            Float
+	double           Double
+	char             Character
+	boolean          Boolean	
+*/
+
+public class 콜렉션벡터_개념01_래퍼클래스 {
+
+	public static void main(String[] args) {
+		int i1 = 10;
+		
+		Integer i2 = Integer.valueOf("10");
+		Integer i3 = new Integer(20);
+		
+		double d1 = 10.11;
+		Double d2 = Double.valueOf(10.11);
+	}
+
+}
 ```
 
 # 20. 콜렉션
@@ -1949,7 +1976,7 @@ public class 콜렉션벡터_개념02_사용법 {
 - 자바에서는 Vector 클래스를 통해 가변배열을 제공한다.
 ### 특징
 - 특이하게 <>꺽쇠를 사용하는데 이를 제네릭(generic)이라고 부른다.
-- 저장할 수 있는 데이터의 타입은 *클래스 타입* 만 가능하다.
+- 저장할 수 있는 데이터의 타입은 **클래스 타입** 만 가능하다.
 - int, double 이와 같은 기본 자료형을 저장할 수 없기 때문에
 - Integer, Double 과 같은 래퍼 클래스를 이용해야 한다.
 ### 선언하는 방법
