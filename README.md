@@ -1942,7 +1942,7 @@ public class 콜렉션벡터_개념01_래퍼클래스 {
 ```
 
 # 20. 콜렉션
-- 데이터를 저장하기위한 유용한 클래스
+- 데이터를 저장하기위한 유용한 자료구조 클래스
 ## Vector
 ```java
 import java.util.Vector;
@@ -1983,3 +1983,87 @@ public class 콜렉션벡터_개념02_사용법 {
 - Vector<Integer> vector = new Vector<Integer>();
 
 ## ArrayList
+```java
+import java.util.ArrayList;
+
+public class 콜렉션종류_기본이론1_어레이리스트1 {
+	public static void main(String[] args) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		// 1. add(value) : ArrayList의 맨 뒤에 value를 추가한다.
+		list.add(1);
+		list.add(2);
+		// 2. remove(index) : ArrayList의 index번째 데이터를 제거한다.
+		list.remove(0);
+		// 3. size() : ArrayList에 저장된 데이터의 개수를 얻어온다.
+		System.out.println(list.size());
+		
+		// 4. get() : ArrayList의 index번째의 value를 얻어온다.
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		
+		// 5. add(index, value) : ArrayList의 index번째 위치에 value를 삽입한다.
+		list.add(0, 0);
+		System.out.println(list); // [0, 2]
+		
+		// 6.set(index, value) : ArrayList의 index번째 위치에 value를 수정한다.
+		list.set(1, 1);
+		
+		// 7. clear() : ArrayList의 모든 데이터를 제거한다.
+		list.clear();
+	}
+}
+```
+- Vector 보다 나중에 나온 자료구조.
+- Vector 보다 성능이 좋다. 
+- 결론은 Vector 보다 ArrayList 를 사용하자. 문법은 똑같다. 
+
+## Map
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class 콜렉션종류_기본이론2_맵 {
+	public static void main(String[] args) {
+		
+		Map<String, Integer> hmap = new HashMap<String, Integer>();
+		
+//		1. put(key, value) : HashMap의 key에 value를 할당한다.
+//		1.1 put() 메소드는 존재하지 않는 key에 넣어주면 데이터가 입력되고 존재하는 key에 넣어주면 수정된다.
+		hmap.put("apple", 1000);
+		hmap.put("orange", 1500);
+		hmap.put("orange", 3000);
+		hmap.put("melon", 5000);
+		hmap.put("water melon", 15000);
+		
+//		2. size() : HashMap에 저장된 데이터의 개수를 얻어온다.
+		System.out.println(hmap.size());
+		
+//		3. get(key) : HashMap의 key에 할당된 value를 얻어온다.
+		System.out.println(hmap.get("orange"));
+		
+//		4. keySet() : HashMap의 key만 얻어온다.
+		System.out.println(hmap.keySet()); // [orange, apple, water melon, melon]
+		
+		int sum = 0;
+		for (String key : hmap.keySet()) {
+			System.out.println(hmap.get(key));
+			sum += hmap.get(key);
+		}
+		System.out.println(sum);
+		
+//		5. remove(key) : HashMap의 key에 해당되는 값을 제거한다.
+		hmap.remove("apple");
+		
+//		6. clear() : HashMap의 모든 값을 제거한다.
+		hmap.clear();
+	}
+}
+```
+		
+- HashMap은 K(Key)에 V(Value)를 할당하는 방식으로 저장된다.
+- Key는 String으로 하고 Value는 HashMap에 저장할 데이터의 타입을 쓴다. 
+		
+- 맵의 객체생성은 앞에 변수는 **Map** 으로 사용하고 new 는 **HashMap** 으로 한다. 
+- HashMap 의 부모인 Map의 메서드를 이용하기때문이다. 
