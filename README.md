@@ -549,11 +549,11 @@ class TestReturn2_2 {
 	}
 }
 ```
-1. 리턴 사용방법
+### 리턴 사용방법
 - return 메서드를 사용하면 클래스내의 변수한개를 줄일수있다.
 - 굳이 쓰지않아도 프로그램 만드는데는 아무런지장이 없다. 
 - 하지만 프로그래밍이 능숙해지면 자연히쓰게된다.
-2. 리턴메서드 만드는법
+### 리턴메서드 만드는법
 - int 			  ==> main 으로 보낼 자료형 
 - plus(int a , int b)     ==> 이름 
 - { return + 내보낼 값 }   ==> 이값은 main 으로 보내진다.   
@@ -1534,16 +1534,18 @@ class CC implements AA, BB { // interface 는 다중상속이 된다.
 	public void test3() {}
 }
 ```
-1. 인터페이스(Interface) 클래스
+### 인터페이스(Interface) 클래스
 - 부모 클래스앞에 interface 를 붙인다.
 - interface 상속은 extends 대신 implements 를 붙인다. 
 - interface 는 다중상속이 가능하여, 여러 interface를 상속할 수 있다.
-2. 인터페이스는 추상클래스보다 더 추상화된 클래스 (전부 강제)
+
+### 인터페이스는 추상클래스보다 더 추상화된 클래스 (전부 강제)
 - 실제 구현된 것이 전혀없는 기본 설계도.
 - 상수와 추상 메서드만 멤버로 갖는다.
 - 인스턴스를 생성할 수 없고, 클래스 작성에 도움을 줄목적으로 사용되는 클래스
 
 # 16. 다형성
+- 여러 타입의 클래스 자료형을 부모 클래스이름으로 통합해서 배열에 저장할 수 있다.
 ## 다형성 예제1
 ```java
 abstract class Shape {
@@ -1826,9 +1828,131 @@ public class 날짜_기본이론2_싱글톤패턴 {
 	}
 }
 ```
-- 싱글톤 패턴이란 
-	- 과거 DAO 클래스들이 static 을 이용해 편리하게 사용했으나
-	- 모든 변수와 함수에 static 을 붙여야만했다. 
-	- class 자체에 static 을 붙이면 좋겠지만
-	- class 에는 static 을 붙일수없기 때문에 (문법적으로)
-	- 그와 유사한 형태로 마치 class 에 붙인거와 같은 효과가 난다. 
+### 싱글톤 패턴이란 
+- 과거 DAO 클래스들이 static 을 이용해 편리하게 사용했으나
+- 모든 변수와 함수에 static 을 붙여야만했다. 
+- class 자체에 static 을 붙이면 좋겠지만
+- class 에는 static 을 붙일수없기 때문에 (문법적으로)
+- 그와 유사한 형태로 마치 class 에 붙인거와 같은 효과가 난다.
+
+# 19. 제네릭
+## 제네릭 예제
+```java
+import java.util.Vector;
+
+class MyVector<T> {
+	private Object[] arr;
+	private int count;
+	
+	public void add(T data) {
+		if (count == 0) {
+			arr = new Object[1];
+		} else if (count > 0) {
+			Object[] temp = arr;
+			arr = new Object[count + 1];
+			
+			for (int i = 0; i < temp.length; i++) {
+				arr[i] = temp[i];
+			}
+			temp = null;
+		}
+		arr[count] = data;
+		count += 1;
+	}
+	public T get(int index) {
+		return (T)arr[index];
+	}
+	public void set(int index, T data) {
+		arr[index] = data;
+	}
+	public int size() {
+		return count;
+	}
+}
+
+class User {
+	public String name;
+	
+	public User() {}
+	public User(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
+}
+class Tv {}
+
+public class 제네릭_기본이론3_제네릭벡터 {
+	public static void main(String[] args) {
+		MyVector<User> list1 = new MyVector<User>();
+		list1.add(new User("홍길동"));
+		list1.add(new User("김민수"));
+		System.out.println(list1.get(0));
+		System.out.println(list1.get(1));
+		
+		// <> 제네릭은 클래스를 지정해주는대로 사용가능하다. 
+		MyVector<Tv> list2 = new MyVector<Tv>();
+		
+		Vector<User> list3 = new Vector<User>();
+		list3.add(new User("홍길동"));
+		User temp1 = new User("김소정");
+		list3.add(temp1);
+		
+		list3.set(1, new User("최민정"));
+		
+		for (User user : list3) {
+			System.out.println(user.toString());
+		}
+	}
+}
+```
+
+## 래퍼클래스
+```java
+```
+
+# 20. 콜렉션
+- 데이터를 저장하기위한 유용한 클래스
+## Vector
+```java
+import java.util.Vector;
+/*	
+# 주요 기능
+	1. 추가 		: add
+	2. 삭제 		: remove
+	3. 전부 삭제 	: clear
+	4. 개수		: size
+	5. 값 읽기	: get (* 배열의 []에 해당)
+	6. 값 수정	: set
+*/
+
+public class 콜렉션벡터_개념02_사용법 {
+	public static void main(String[] args) {
+		Vector<Integer> v = new Vector<Integer>();
+		
+		v.add(100);
+		System.out.println(v); // [100]
+		System.out.println(v.get(0)); //100
+		v.set(0, 200);
+		v.size(); // 1
+		v.remove(0);
+		v.clear();
+	}
+}
+```
+### 배열의 한계
+- 배열은 한번 선언하면 프로그램에서 그 크기를 바꿀 수 없다.
+- 가변배열을 직접 만들어서 사용했지만,
+- 자바에서는 Vector 클래스를 통해 가변배열을 제공한다.
+### 특징
+- 특이하게 <>꺽쇠를 사용하는데 이를 제네릭(generic)이라고 부른다.
+- 저장할 수 있는 데이터의 타입은 *클래스 타입* 만 가능하다.
+- int, double 이와 같은 기본 자료형을 저장할 수 없기 때문에
+- Integer, Double 과 같은 래퍼 클래스를 이용해야 한다.
+### 선언하는 방법
+- Vector<Integer> vector = new Vector<Integer>();
+
+## ArrayList
