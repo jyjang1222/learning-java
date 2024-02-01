@@ -895,7 +895,10 @@ Test01 t = new Test01();
 t.c = 30;
 t.d = 40;
 ```
-- 접근제어자 : public(공공의), protected(추후 설명), default(접근제어자가 없는 상태), private(개인의)
+- public : 프로젝트내 모든 클래스에서 사용가능
+- protected  : 패키지가 같으면 public, 패키지가 다르면 자식클래스내에서는 public, 자식클래스내가 아니면 private
+- default : 패키지가 같으면 public, 패키지가 다르면 private
+- private : 내부 클래스에서만 사용가능, 타 클래스에서 사용불가
 
 ## 접근제어자2
 ```java
@@ -947,11 +950,6 @@ public class 접근제어자_개념03_실습예제 {
 - protected : 동일 패키지, 자식 클래스에서 접근 가능
 - default : 동일 패키지 클래스에서 접근 가능
 - private : 클래스 내부접근만 허용
-
-- public : 프로젝트내 모든 클래스에서 사용가능
-- protected  : 패키지가 같으면 public, 패키지가 다르면 자식클래스내에서는 public, 자식클래스내가 아니면 private
-- default : 패키지가 같으면 public, 패키지가 다르면 private
-- private : 내부 클래스에서만 사용가능, 타 클래스에서 사용불가
 
 # 12. 스태틱
 ## 스태틱 활용 예제1
