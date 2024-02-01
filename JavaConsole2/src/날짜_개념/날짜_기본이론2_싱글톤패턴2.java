@@ -2,7 +2,7 @@ package 날짜_개념;
 
 class Member {}
 class MemberDAO {
-	static public MemberDAO instance = new MemberDAO();
+	public static MemberDAO instance = new MemberDAO();
 	public void insert() {}
 	public void delete() {}
 }
@@ -24,7 +24,7 @@ public class 날짜_기본이론2_싱글톤패턴2 {
 	public static void main(String[] args) {
 		
 		MemberDAO.instance.delete();	
-		MemberDAO.instance = new MemberDAO(); // 외부에서 new가 가능한 문제점이 있다. 
+		MemberDAO.instance = new MemberDAO(); // private으로 잠그지 않으면 외부에서 new가 가능한 문제점이 있다. 
 		
 		// 싱글턴 만드는법 
 		// UserDAO user = new UserDAO(); 
