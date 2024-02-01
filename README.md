@@ -2063,7 +2063,6 @@ public class 콜렉션종류_기본이론2_맵 {
 ```
 		
 - HashMap은 K(Key)에 V(Value)를 할당하는 방식으로 저장된다.
-- Key는 String으로 하고 Value는 HashMap에 저장할 데이터의 타입을 쓴다. 
-		
+- Key는 String으로 하고 Value는 HashMap에 저장할 데이터의 타입을 쓴다.
 - 맵의 객체생성은 앞에 변수는 **Map** 으로 사용하고 new 는 **HashMap** 으로 한다. 
-- HashMap 의 부모인 Map의 메서드를 이용하기때문이다. 
+- HashMap 의 부모인 Map의 메서드를 이용하기때문이다.
