@@ -1,12 +1,14 @@
 # 0. 자바 설치
-1. 자바 언어 https://youtu.be/9uJQHdtwmBs
-2. 확인 : c > program > java
+1. 자바 언어
+	- https://www.oracle.com/kr/java/technologies/javase/javase8-archive-downloads.html
+3. 확인 : c > program > java
 	- jdk = java development kit
 	- jre = java runtime environment 
-3. 이클립스(eclipse) https://youtu.be/o09bJ7KQW3U
+4. 이클립스(eclipse)
 	- 설치형
- 	- 압축해제형 
-4. 이클립스에서 Java파일 생성
+ 	- 압축해제형
+		- https://www.eclipse.org/downloads/packages/
+5. 이클립스에서 Java파일 생성
 	- 프로젝트 (Java Project)
 	- 패키지 (Package)
  	- 클래스파일 (class)
