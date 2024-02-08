@@ -606,8 +606,8 @@ class MethodOverloding {
 	void test(String a) {}
 }
 ```
-- 메서드 **오버로딩**이란 같은 이름의 메서드를 사용할 수 있는 기능이다.
-- 메서드의 이름이 같아도 전달되는 값이 다르다면 서로 다른 메서드로 인식한다.
+- 메서드 **오버로딩**이란 같은 이름의 메서드를 사용할 수 있는 기능이다
+- 메서드의 이름이 같아도 전달되는 값이 다르다면 서로 다른 메서드로 인식한다
 
 ### 메서드 오버라이딩 (overriding)
 ```java
@@ -636,11 +636,12 @@ public class 상속_개념07_오버라이딩 {
 	}
 }
 ```
-- **오버라이딩**이란 부모 클래스에 있는 메서드를 자식 클래스가 같은 이름으로 메서드를 재정의해서 사용하는 것이다.
+- **오버라이딩**이란 부모 클래스에 있는 메서드를 자식 클래스가 같은 이름으로 메서드를 재정의해서 사용하는 것이다
 - 메서드 오버라이딩은 상속 관계에서 적용된다.
-- 대표적인 예가 equals() 메서드. String클래스가 Object클래스를 상속받아 equals메서드를 재정의한 것.
-- 부모의 메서드는 실행되지않고 자식의 메서드가 우선순위를 가져간다.
-
+- 대표적인 예가 equals() 메서드. String클래스가 Object클래스를 상속받아 equals메서드를 재정의한 것
+- 부모의 메서드는 실행되지않고 자식의 메서드가 우선순위를 가져간다
+- 여러 타입의 클래스 자료형을 부모 클래스이름으로 통합해서 배열에 저장할 수 있다
+- 
 # 8. 예외처리
 ## try, catch, finally
 ```java		
@@ -1449,7 +1450,36 @@ public class 추상화_개념03_기본이론3 {
 }
 ```
 
-## 클래스 형변환
+# 15. 인터페이스
+## 예제
+```java
+interface AA {
+	public void test1();
+}
+interface BB {
+	public void test2();
+	public void test3();
+}
+class CC implements AA, BB { // interface 는 다중상속이 된다
+	public void test1() {} // interface 를 상속하면 메서드를 무조건 강제구현한다
+	public void test2() {}
+	public void test3() {}
+}
+```
+### 인터페이스(Interface) 클래스
+- 부모 클래스앞에 interface 를 붙인다
+- interface 상속은 extends 대신 implements 를 붙인다
+- interface 는 다중상속이 가능하여, 여러 interface를 상속할 수 있다
+
+### 인터페이스는 추상클래스보다 더 추상화된 클래스 (전부 강제)
+- 실제 구현된 것이 전혀없는 기본 설계도
+- 상수와 추상 메서드만 멤버로 갖는다
+- 인스턴스를 생성할 수 없고, 클래스 작성에 도움을 줄목적으로 사용되는 클래스
+
+# 16. 다형성
+- **다형성**이란 상속받은 인스턴스들이 서로 다른 형태(자료형)를 갖는 성질
+
+## 클래스 타입 형변환
 ```java
 class Parent1 {
 	int a;
@@ -1479,6 +1509,7 @@ public class 추상화_개념04_형변환1 {
 }
 
 ```
+- 타입으로 접근하면 이해가 쉬워진다
 
 ## 클래스 형변환2
 ### instanceof
@@ -1527,35 +1558,7 @@ public class 추상화_개념05_형변환2 {
 }
 ```
 
-# 15. 인터페이스
-## 예제
-```java
-interface AA {
-	public void test1();
-}
-interface BB {
-	public void test2();
-	public void test3();
-}
-class CC implements AA, BB { // interface 는 다중상속이 된다. 
-	public void test1() {} // interface 를 상속하면 메서드를 무조건 강제구현한다.
-	public void test2() {}
-	public void test3() {}
-}
-```
-### 인터페이스(Interface) 클래스
-- 부모 클래스앞에 interface 를 붙인다.
-- interface 상속은 extends 대신 implements 를 붙인다. 
-- interface 는 다중상속이 가능하여, 여러 interface를 상속할 수 있다.
-
-### 인터페이스는 추상클래스보다 더 추상화된 클래스 (전부 강제)
-- 실제 구현된 것이 전혀없는 기본 설계도.
-- 상수와 추상 메서드만 멤버로 갖는다.
-- 인스턴스를 생성할 수 없고, 클래스 작성에 도움을 줄목적으로 사용되는 클래스
-
-# 16. 다형성
-- 여러 타입의 클래스 자료형을 부모 클래스이름으로 통합해서 배열에 저장할 수 있다.
-## 다형성 예제1
+## 다형성 클래스배열 예제
 ```java
 abstract class Shape {
 	public abstract void draw();
@@ -1605,8 +1608,7 @@ public class 추상화_개념06_다형성그리기 {
 	public static void main(String[] args) {
 		// === 다형성 === 
 		// 서로 다른클래스는 배열에 저장불가능하기때문에
-		// 공통부모를 상속받고
-		// 부모의 클래스로 배열을 만들면 한배열에 서로다른클래스들을 저장할수있다.
+		// 공통부모를 상속받고 부모의 클래스로 배열을 만들면 한배열에 서로다른클래스들을 저장할수있다.
 		Shape[] shapes = {new Point(), new Line(), new Circle(), new Rect(), new TriAngle()};
 		
 		Scanner sc = new Scanner(System.in);
@@ -1618,123 +1620,7 @@ public class 추상화_개념06_다형성그리기 {
 	}
 }
 ```
-
-## 다형성 예제2
-```java
-import java.util.Random;
-
-interface Skill {
-	public abstract void skill();
-	public abstract void skillAttack(Unit unit);
-	public abstract void attack(Unit unit);
-}
-
-class Unit implements Skill {
-	public final int MAX_HP;
-	public int hp;
-	public int power;
-	
-	public Unit(int hp, int power) {
-		MAX_HP = hp;
-		this.hp = MAX_HP;
-		this.power = power;
-	}
-	
-	@Override
-	public String toString() {
-		return hp + "/" + MAX_HP;
-	}
-	
-	@Override
-	public void skill() {}
-	@Override
-	public void skillAttack(Unit unit) {}
-	@Override
-	public void attack(Unit unit) {}
-}
-
-class Wolf extends Unit {
-	public int leg;
-	public int bite;
-	
-	public Wolf(int leg, int bite) {
-		super(100, 10);
-		this.leg = leg;
-		this.bite = bite;
-	}
-
-	@Override
-	public void skill() {
-		power += leg + bite;
-		System.out.println("다리개수와 이빨개수만큼 공격력이 향상했다! power =" + power);
-	}
-	@Override
-	public void attack(Unit unit) {
-		Random ran = new Random();
-		
-		int rNum = ran.nextInt(10) + 1;
-		
-		unit.hp -= power;
-		unit.hp -= rNum;
-		
-		System.out.println("Wolf가 기본 데미지 " + this.power + "을(를) 입혔습니다.");
-		System.out.println("Wolf가 추가 데미지 " + rNum + "을(를) 입혔습니다.");
-	}
-	@Override
-	public void skillAttack(Unit unit) {}
-}
-
-class Bat extends Unit {
-	public int fly;
-	public int poison;
-	
-	public Bat(int fly, int poison) {
-		super(50, 5);
-		this.fly = fly;
-		this.poison = poison;
-	}
-	
-	@Override
-	public void skill() {
-		power += fly;
-		System.out.println("Bat가 fly스킬 사용, 공격력증가! power = " + power);
-	}
-	@Override
-	public void skillAttack(Unit unit) {
-		unit.hp -= poison + power;
-		Random ran = new Random();
-		
-		int rNum = ran.nextInt(10) + 1;
-		System.out.println("Bat가 기본 데미지 " + this.power + "을(를) 입혔습니다.");
-		System.out.println("Bat가 추가 데미지 " + rNum + "을(를) 입혔습니다.");
-	}
-	@Override
-	public void attack(Unit unit) {
-		unit.hp -= power;
-		System.out.println("Bat가 기본 데미지 " + this.power + "을(를) 입혔습니다.");
-	}
-}
-
-public class 인터페이스_개념04_RPG {
-	public static void main(String[] args) {
-		Unit[] unitList = new Unit[5];
-		
-		Wolf wolf = new Wolf(3, 10);
-		unitList[0] = wolf;
-		unitList[0].skill();
-		
-		Bat bat = new Bat(10, 5);
-		unitList[1] = bat;
-		unitList[1].skill();
-		
-		unitList[0].attack(unitList[1]);
-		System.out.println(unitList[1]);
-		unitList[1].attack(unitList[0]);
-		System.out.println(unitList[0]);
-	}
-}
-
-```
+- 상속받은 여러 타입의 클래스 자료형을 부모 클래스 배열로 통합해서 배열에 저장할 수 있다
 
 # 17. 날짜
 ## Date
