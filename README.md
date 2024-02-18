@@ -5,7 +5,7 @@
   
 - **캡슐화**란 외부로 부터 접근을 제어해서 데이터를 보호하는 것
 - **상속**이란 부모클래스에 있는 변수, 메서드를 자식클래스가 그대로 사용할수있는 것
-- **추상화**란 클래스들의 공통적인 부분을 구해서 추상클래스를 만드는 것
+- **추상화**란 객체들의 **공통적인 부분**(변수, 메서드)을 구해서 추상클래스를 만드는 것
 - **다형성**이란 상속받은 객체들이 서로 다른 형태(자료형)를 갖는 성질
   
 - **오버로딩**이란 같은 이름의 메서드를 만들 수 있는 기능
@@ -655,7 +655,7 @@ public class 상속_개념07_오버라이딩 {
 - 대표적인 예가 equals() 메서드. String클래스가 Object클래스를 상속받아 equals메서드를 재정의한 것
 - 부모의 메서드는 실행되지않고 자식의 메서드가 우선순위를 가져간다
 - 여러 타입의 클래스 자료형을 부모 클래스이름으로 통합해서 배열에 저장할 수 있다
-- 
+
 # 8. 예외처리
 ## try, catch, finally
 ```java		
@@ -762,7 +762,7 @@ import java.io.FileReader;
 
 // 1) FileReader fr = null; 		// 변수선언
 // 1) fr = new FileReader(fileName); 	// 저장된 파일을 읽어온다.	
-// 2) fr.read(); 			// 한글자씩 int로 가져온다. 								// 가져올 내용이 없으면 -1이 저장된다.
+// 2) fr.read(); 			// 한글자씩 int로 가져온다. (가져올 내용이 없으면 -1이 저장)
 // 3) fr.close(); 			// 사용후 반드시 닫아야 된다.
 		
 String fileName = "src/파일입출력_개념/file1.txt";
@@ -1007,23 +1007,21 @@ public class 스태틱1_개념01_기본이론1 {
 ## DTO, DAO
 ### DTO (Data Transfer Object)
 - 데이터 전송 객체
-- 계층(Layer)간 데이터를 주고받기 위한 객체
-- 계층(Layer)란 Controller, View, Business, Persistent 레이어 등을 말한다
+- 여러 레이어(Layer)간 데이터를 주고 받을 때 사용할 수 있고 주로 View와 Controller 사이에서 활용
 - 일반적으로 DB에서 가져온 데이터를 다른 계층에서 사용하기 적합한 형식으로 변환하여 전송하는데 사용
 - DTO 속성은 getter / setter 메서드로 구성
 - 데이터 전송에만 사용
 ### DAO (Data Access Object)
-- 데이터 접근(액세스) 객체(DB의 data에 접근하기 위한 객체)
+- 데이터 접근 객체(DB의 data에 접근하기 위한 객체)
 - DB에서 데이터를 가져오거나 DB에 데이터를 저장하는 등 CRUD작업을 수행하는 객체
-- 비즈니스 계층과 DB 간의 인터페이스 역할
 - DAO를 static 으로 만들면 편하다.
 - DTO와 DAO는 항상 한세트로 만든다고 생각하면된다
 
 ## static, DTO, DAO 활용 예제
 ```java
-class Client {
+class ClientDTO {
 	private int num;
-	
+
 	public int getNum() {
 		return num;
 	}
@@ -1043,7 +1041,7 @@ public class 스태틱1_개념03_기본이론3 {
 	public static void main(String[] args) {
 		
 		for (int i = 0; i < 5; i++) {
-			Client c = new Client();
+			ClientDTO c = new ClientDTO();
 			c.setNum(i);
 			staticClientDAO.addClient(c);
 		}
@@ -1393,7 +1391,7 @@ public class 상속_개념09_super1 {
 //1) 클래스 앞에 abstract를 붙여줌
 abstract class A {
 	// 2) 메서드 앞에 abstract를 붙여줌
-	abstract void test();  //구현을 하지않 다는 표현으로 {}를 없애고 ';' 을 붙임 
+	abstract void test();  //구현을 하지않는다는 표현으로 {}를 없애고 ';' 을 붙임 
 	
 	void test2() {} // abstract 가 붙지않은 메서드도 만들수있다. 
 }
@@ -1406,8 +1404,8 @@ class B extends A {
 	}
 }
 ```
-- **추상화**란 클래스들의 **공통적인 부분**을 구해서 추상클래스를 만드는 것을 말한다
-- 추상클래스란 클래스들의 공통되는 변수와 메서드를 정의한 클래스이다
+- **추상화**란 객체들의 **공통적인 부분**을 구해서 추상클래스를 만드는 것을 말한다
+- 추상클래스는 부모클래스에 변수와 메서드를 정의만 하고 구현은 자식클래스에 작성 한다
 - abstract 키워드를 사용하여 추상클래스, 추상메서드를 만들 수 있다
 - 추상클래스는 인스턴스를 만들 수 없다. 따라서 상속을 통해 자식 클래스에서 인스턴스를 생성해야 한다
 - 추상메서드는 부모클래스에서 이름만 정의하고 내용은 자식클래스에서 오버라이딩을 해서 구현한다
@@ -1740,10 +1738,8 @@ public class 날짜_기본이론2_싱글톤패턴 {
 }
 ```
 ### 싱글톤 패턴이란 
-- 과거 DAO 클래스들이 static 을 이용해 편리하게 사용했으나
-- 모든 변수와 함수에 static 을 붙여야만했다. 
-- class 자체에 static 을 붙이면 좋겠지만
-- class 에는 static 을 붙일수없기 때문에 (문법적으로)
+- 과거 DAO 클래스들이 static 을 이용해 편리하게 사용했으나 모든 변수와 함수에 static 을 붙여야만 했다
+- class 자체에 static 을 붙이면 좋겠지만 class 에는 static 을 붙일수없기 때문에 (문법적으로)
 - 그와 유사한 형태로 마치 class 에 붙인거와 같은 효과가 난다.
 
 # 19. 제네릭
