@@ -91,30 +91,6 @@ https://naver.github.io/hackday-conventions-java/
 15. B를 기준으로 A를 하겠다는 메소드명의 전치사는 By를 사용한다.
      (ex. public void getUserByName(String name){})
 
-16. 반환값의 타입이 boolean인 메소드는 접두사로 is를 사용한다.
-     (ex. public void isData(String Data){})
-
-17. 데이터를 불러오는 메소드명의 접두사는 load를 사용한다.
-     (ex. public void loadData(){})
-
-18. 데이터가 있는지 확인하는 메소드명의 접두사는 has를 사용한다.
-     (ex. public void hasData(){})
-
-19. 보다 지능적인 set이 요구될때 사용하는 메소드명의 접두사는 register를 사용한다.
-     (ex. public void registerAccount(){})
-
-20. 새로운 객체를 만든뒤 해당 객체를 리턴해주는 메소드명의 접두사는 create를 사용한다.
-     (ex. public void createAccount(){})
-
-21. 해당 객체를 다른 형태의 객체로 변환해주는 메소드명의 접두사는 to를 사용한다.
-     (ex. public void toString(){})
-
-22. 해당 객체가 복수인지 단일인지 구분하는 메서드명의 접미사는 s를 사용한다.
-     (ex. public void getMembers(){})
-
-23. B를 기준으로 A를 하겠다는 메소드명의 전치사는 By를 사용한다.
-     (ex. public void getUserByName(String name){})
-
 ### 변수 명명 규칙
 1. 변수와 메소드의 파라미터에는 카멜표기법을 사용한다.
 2. 변수에 약어를 사용하지 않고 모든 의미를 충분히 담는다.
