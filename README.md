@@ -45,8 +45,8 @@ https://naver.github.io/hackday-conventions-java/
      (ex. public abstract class Animal {})
 
 ### 메소드 명명 규칙
-1. 메소드명에는 파스칼 표기법을 사용한다.
-     (ex. public void SendMessage(String message) {} )
+1. 메소드명에는 카멜 표기법을 사용한다.
+     (ex. public void sendMessage(String message) {} )
 
 2. 속성에 접근하는 메소드명의 접두사는 'get','set'을 사용한다.
      (ex. public void setDisplayName)
