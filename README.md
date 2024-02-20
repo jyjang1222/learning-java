@@ -105,7 +105,24 @@ https://naver.github.io/hackday-conventions-java/
 
 8. boolean타입의 변수는 접두사로 is를 사용한다
 
-출처 : blog.naver.com/reona7140/221306141987
+## 많이 쓰이는 반의어 정리
+| 반의어 | 설명 |
+|:---|:---|
+|get / set|얻다 / 놓다|
+|add / remove|추가 / 제거|
+|create / destroy|창조 / 파괴|
+|start / stop|시동 / 정지|
+|insert / delete|삽입 / 삭제|
+|increment / decrement|증가 / 감소|
+|old / new|구 / 신|
+|first / last|처음 / 마지막|
+|up / down|위 / 아래|
+|min / max|최소 / 최대|
+|next / previous|다음 / 이전|
+|open / close|열다 / 닫다|
+|show / hide|보이다 / 숨기다|
+|pause / resume|일시 정지 / 재개하다|
+|parent / child|부모 / 자식|
 
 # 0. 자바 설치
 1. 자바 언어
