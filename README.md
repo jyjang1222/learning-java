@@ -1016,7 +1016,8 @@ public class 생성자_개념01_기본이론1 {
 ```
 
 # 11. 캡슐화
-- **캡슐화**란 외부로 부터 접근을 제어해서 데이터를 보호하는 것을 말한다 
+- **캡슐화**란 외부로 부터 접근을 제어해서 데이터를 보호하는 것을 말한다
+- 변수에는 private, 메서드에는 public 키워드를 붙이고 get, set메서드를 만드는 것(DTO)으로 구현한다
 ## 접근제어자
 ```java
 class Test01 {
@@ -1105,6 +1106,27 @@ public class 접근제어자_개념03_실습예제 {
 - default : 동일 패키지 클래스에서 접근 가능
 - private : 클래스 내부접근만 허용
 
+## DTO
+### DTO (Data Transfer Object)
+- 데이터 전송 객체
+- 여러 레이어(Layer)간 데이터를 주고 받을 때 사용할 수 있고 주로 View와 Controller 사이에서 활용
+- 일반적으로 DB에서 가져온 데이터를 다른 계층에서 사용하기 적합한 형식으로 변환하여 전송하는데 사용
+- DTO 속성은 getter / setter 메서드로 구성
+- 데이터 전송에만 사용
+
+```java
+class ClientDTO {
+	private int num;
+
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+}
+```
+
 # 12. 스태틱
 ## 스태틱 활용 예제1
 ```java
@@ -1140,14 +1162,7 @@ public class 스태틱1_개념01_기본이론1 {
 	- 변수는 각각의 인스턴스가 개별적으로 데이터를 갖게 된다. 인스턴스1.변수, 인스턴스2.변수
 	- 메서드는 new키워드를 사용하여 생성된 인스턴스를 통해 메서드를 호출해야한다. 인스턴스.메서드()
 
-## DTO, DAO
-### DTO (Data Transfer Object)
-- 데이터 전송 객체
-- 여러 레이어(Layer)간 데이터를 주고 받을 때 사용할 수 있고 주로 View와 Controller 사이에서 활용
-- 일반적으로 DB에서 가져온 데이터를 다른 계층에서 사용하기 적합한 형식으로 변환하여 전송하는데 사용
-- DTO 속성은 getter / setter 메서드로 구성
-- 데이터 전송에만 사용
-### DAO (Data Access Object)
+## DAO (Data Access Object)
 - 데이터 접근 객체(DB의 data에 접근하기 위한 객체)
 - DB에서 데이터를 가져오거나 DB에 데이터를 저장하는 등 CRUD작업을 수행하는 객체
 - DAO를 static 으로 만들면 편하다.
