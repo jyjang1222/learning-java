@@ -1789,8 +1789,10 @@ public class 추상화_개념06_다형성그리기 {
 
 # 17. 날짜
 ## 사용권장 순위
-- LocalDate, LocalTime, LocalDateTime > Date, Calendar
-- DateTimeFormatter > SimpleDateFormat
+- **LocalDate, LocalTime, LocalDateTime** > Date, Calendar
+- **DateTimeFormatter** > SimpleDateFormat
+### 날짜 관련 클래스가 다수 존재하는 이유
+- Java 8 이전에 사용하던 Date 관련 클래스는 Date, Calendar, SimpleDateFormat 등이 있었으나, 많은 문제가 있어 자바 8 버전 이후부터는 새로운 날짜 관련 API를 제공한다
 - Date, Calendar, SimpleDateFormat클래스들은 Java의 레거시 API
 
 ## Date
@@ -1859,6 +1861,18 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
+// 현재 날짜 가져오기
+LocalDate currentDate = LocalDate.now();
+
+// 현재 시간 가져오기
+LocalTime currentTime = LocalTime.now();
+
+// 현재 날짜와 시간 가져오기
+LocalDateTime currentDateTime = LocalDateTime.now();
+```
+
+### 특정 날짜와 시간 생성하기
+```java
 // 특정 날짜 생성하기 (년, 월, 일)
 LocalDate date = LocalDate.of(2022, 9, 15);
 
