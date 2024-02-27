@@ -1788,45 +1788,20 @@ public class 추상화_개념06_다형성그리기 {
 - 상속받은 여러 타입의 클래스 자료형을 부모 클래스 배열로 통합해서 배열에 저장할 수 있다
 
 # 17. 날짜
+## 사용권장 순위
+- LocalDate, LocalTime, LocalDateTime > Date, Calendar
+- DateTimeFormatter > SimpleDateFormat
+- Date, Calendar, SimpleDateFormat클래스들은 Java의 레거시 API
+
 ## Date
 ```java
 import java.util.Date;
 
 Date date = new Date();
 System.out.println(date); // Wed Jan 31 21:36:01 KST 2024
-// date메서드는 줄이 그여서 곧 사용금지될 함수들이다.
-// date를 사용하지말고 Calendar 클래스 사용을 권한다. 
+// date메서드는 곧 사용금지될 함수들이다.
 System.out.println("년 : " + (date.getYear() + 1900));
 ```
-- Date 클래스의 활용
-	- Date 클래스 객체에서 년, 월, 일, 시, 분, 초를 얻어오려면
-	- get으로 시작하는 메소드를 사용한다.
-	- Date 클래스는 1900년을 기준으로 날짜를 처리한다.
-
-## SimpleDateFormat
-```java
-import java.text.SimpleDateFormat;
-
-SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일 E요일 a hh시 mm분 ss초");
-System.out.println(sdf1.format(date));
-SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM.dd(E) HH:mm");
-System.out.println(sdf2.format(date));
-/*
-* System.currentTimeMillis()
-* 1970년 1월 1일 자정 부터 이 메소드가 실행되는 순간까지 지나온 시간을 밀리초(1/1000초) 단위로 얻어온다.
-* 13자리의 숫자를 얻어오기 때문에 int로 처리하면 에러가 발생되므로 long로 처리해야 한다.
-*/
-long time = System.currentTimeMillis();
-System.out.println(time);
-System.out.println(sdf2.format(time));
-```
-- 날짜 및 시간 출력 서식 지정 방법
-	- 날짜 및 시간 서식에 사용되는 영문자를 제외한 나머지 문자는 입력하는 그대로 출력된다.
-	- SimpleDateFormat sdf = new SimpleDateFormat("날짜 및 시간 서식");
-- 날짜 및 시간 서식 적용 방법
-	- sdf.format(date);
-- 날짜 및 시작 출력 서식 문자의 종류
-	- 구글에서 "simpledateformat 날짜 형식" 라고 검색하기
 
 ## Calendar
 ```java
@@ -1858,6 +1833,90 @@ System.out.println("초 : " + calendar.get(Calendar.SECOND));
 - Calendar 클래스 객체는 날짜 및 시간 정보 이외의 더 많은 정보를 가지고 있으므로 
 - SimpleDateFormat 클래스 객체를 이용해 서식을 지정하려면 getTime() 메소드로 날짜와 시간만 얻어온 후 적용시켜야 한다.
 - get() 메소드로 날짜,시간을 각각 구할수 있다.
+
+## SimpleDateFormat
+```java
+import java.text.SimpleDateFormat;
+
+SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일 E요일 a hh시 mm분 ss초");
+System.out.println(sdf1.format(date));
+SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM.dd(E) HH:mm");
+System.out.println(sdf2.format(date));
+/*
+* System.currentTimeMillis()
+* 1970년 1월 1일 자정 부터 이 메소드가 실행되는 순간까지 지나온 시간을 밀리초(1/1000초) 단위로 얻어온다.
+* 13자리의 숫자를 얻어오기 때문에 int로 처리하면 에러가 발생되므로 long로 처리해야 한다.
+*/
+long time = System.currentTimeMillis();
+System.out.println(time);
+System.out.println(sdf2.format(time));
+```
+
+## LocalDate, LocalTime, LocalDateTime
+### 현재 날짜 및 시간 가져오기
+```java
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+// 특정 날짜 생성하기 (년, 월, 일)
+LocalDate date = LocalDate.of(2022, 9, 15);
+
+// 특정 시간 생성하기 (시, 분)
+LocalTime time = LocalTime.of(14, 30);
+
+// 특정 날짜와 시간 생성하기 (년, 월, 일, 시, 분)
+LocalDateTime dateTime = LocalDateTime.of(2022, 9, 15, 14, 30);
+```
+
+### 날짜 및 시간 계산하기
+```java
+// 날짜에 대한 연산
+LocalDate tomorrow = LocalDate.now().plusDays(1); // 내일
+LocalDate nextWeek = LocalDate.now().plusWeeks(1); // 일주일 후
+
+// 시간에 대한 연산
+LocalDateTime nextHour = LocalDateTime.now().plusHours(1); // 한 시간 후
+
+// 두 날짜 사이의 일 수 계산
+LocalDate startDate = LocalDate.of(2022, 1, 1);
+LocalDate endDate = LocalDate.of(2022, 12, 31);
+long daysBetween = ChronoUnit.DAYS.between(startDate, endDate); // 2022년의 일 수
+```
+
+### 날짜 및 시간 연산하기
+```java
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+// 날짜에 대한 연산
+LocalDate tomorrow = LocalDate.now().plusDays(1); // 내일
+LocalDate nextWeek = LocalDate.now().plusWeeks(1); // 일주일 후
+
+// 시간에 대한 연산
+LocalDateTime nextHour = LocalDateTime.now().plusHours(1); // 한 시간 후
+
+// 두 날짜 사이의 일 수 계산
+LocalDate startDate = LocalDate.of(2022, 1, 1);
+LocalDate endDate = LocalDate.of(2022, 12, 31);
+long daysBetween = ChronoUnit.DAYS.between(startDate, endDate); // 2022년의 일 수
+```
+
+## DateTimeFormatter
+### 특정 서식으로 날짜와 시간 표시하기
+```java
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+// 날짜와 시간 객체 생성
+LocalDateTime dateTime = LocalDateTime.now();
+
+// 패턴을 사용하여 날짜와 시간을 문자열로 변환
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+String formattedDateTime = dateTime.format(formatter);
+System.out.println(formattedDateTime); // 예: 2022-02-28 13:45:30
+```
 
 # 18. 싱글톤 패턴
 ```java
