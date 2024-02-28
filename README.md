@@ -853,6 +853,23 @@ public class 예외처리_개념06_기본이론6 {
 	}
 }
 ```
+- 함수를 호출할때 try내부에서 사용되면 throws Exception을 붙여준다
+
+## try, catch, finally 예제
+```java
+FileWriter fw = null;
+// 중간지점에서 오류가 발생
+try {
+	fw = new FileWriter("ex01.txt");
+	fw.write("테스트");
+	// 중간지점에서 오류가 발생
+} catch(Exception e) {
+	e.printStackTrace();
+} finally {
+	// close() 메서드는 finally에
+	if (fw != null) {try {fw.close();} catch(IOException e) {}}
+}
+```
 
 ## Thread.sleep
 ```java
