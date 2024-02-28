@@ -394,15 +394,16 @@ System.out.println(rs3);			// 0
 6. replaceAll("기존단어","대체단어") : 문자열 변경
 
 ## 형변환
+### 기본 자료형 형변환하기
 ```java
-// 1. 기본 자료형 형변환하는 방법 : (자료형)변수
 // * 문자 -> 숫자
 char ch = 'a';
 int chNum = (int)ch;	// 97
 		
 ch = (char)(chNum + 1);    //b
-		
-// 2. 문자열 형변환하는 방법 : 특수함수를 사용해야한다.
+```
+### 문자열 형변환하기
+```java
 // * 문자열 -> 숫자
 String strNum = "10";
 int num = Integer.parseInt(strNum);
@@ -416,6 +417,10 @@ System.out.println(strNum + 1);		// 101
 // 방법2) 정식
 strNum = String.valueOf(num);
 System.out.println(strNum + 1);		// 101
+
+// 문자열 -> 문자 배열
+String strList = scan.nextLine();
+char[] chList = strList.toCharArray();
 ```
 
 ## 문자열 포맷
