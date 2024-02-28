@@ -1114,10 +1114,10 @@ public class 접근제어자_개념03_실습예제 {
 ## DTO
 ### DTO (Data Transfer Object)
 - 데이터 전송 객체
-- 여러 레이어(Layer)간 데이터를 주고 받을 때 사용할 수 있고 주로 View와 Controller 사이에서 활용
-- 일반적으로 DB에서 가져온 데이터를 다른 계층에서 사용하기 적합한 형식으로 변환하여 전송하는데 사용
+- 데이터를 주고 받을 때 사용
+- 변수는 private 메서드는 public (캡슐화)
 - DTO 속성은 getter / setter 메서드로 구성
-- 데이터 전송에만 사용
+- MySQL 테이블 1개에 해당
 
 ```java
 class ClientDTO {
@@ -1169,9 +1169,10 @@ public class 스태틱1_개념01_기본이론1 {
 
 ## DAO (Data Access Object)
 - 데이터 접근 객체(DB의 data에 접근하기 위한 객체)
-- DB에서 데이터를 가져오거나 DB에 데이터를 저장하는 등 CRUD작업을 수행하는 객체
+- DB와 연동 및 DTO 데이터를 처리하기 위한 각종 메서드 보유
 - DAO를 static 으로 만들면 편하다.
 - DTO와 DAO는 항상 한세트로 만든다고 생각하면된다
+- 싱글톤 패턴이 DAO에 적용됨
 
 ## static, DTO, DAO 활용 예제
 ```java
