@@ -1111,8 +1111,7 @@ public class 접근제어자_개념03_실습예제 {
 - default : 동일 패키지 클래스에서 접근 가능
 - private : 클래스 내부접근만 허용
 
-## DTO
-### DTO (Data Transfer Object)
+## DTO (Data Transfer Object)
 - 데이터 전송 객체
 - 데이터를 주고 받을 때 사용
 - 변수는 private 메서드는 public (캡슐화)
