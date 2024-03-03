@@ -1939,6 +1939,49 @@ LocalDate endDate = LocalDate.of(2022, 12, 31);
 long daysBetween = ChronoUnit.DAYS.between(startDate, endDate); // 2022년의 일 수
 ```
 
+## ZonedDateTime, ZoneId
+- 타임존까지 고려할때 쓰는 날짜 클래스
+
+### 현재 시간의 ZonedDateTime 가져오기
+```java
+import java.time.ZonedDateTime;
+
+ZonedDateTime currentDateTime = ZonedDateTime.now();
+```
+
+### 특정 타임존의 ZonedDateTime 생성하기
+```java
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+
+ZonedDateTime dateTimeInNewYork = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+ZonedDateTime dateTimeInNewYork = ZonedDateTime.now(ZoneId.of("UTC"));
+```
+
+### ZonedDateTime 간의 변환
+```java
+import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
+// LocalDateTime을 특정 타임존으로 변환
+LocalDateTime localDateTime = LocalDateTime.now();
+ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.of("Asia/Seoul"));
+
+// ZonedDateTime을 다른 타임존으로 변환
+ZonedDateTime newYorkTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+ZonedDateTime londonTime = newYorkTime.withZoneSameInstant(ZoneId.of("UTC"));
+```
+
+### ZonedDateTime에서 시간 정보 가져오기
+```java
+import java.time.ZonedDateTime;
+import java.time.LocalTime;
+
+ZonedDateTime zonedDateTime = ZonedDateTime.now();
+LocalTime time = zonedDateTime.toLocalTime();
+```
+
 ## DateTimeFormatter
 ### 특정 서식으로 날짜와 시간 표시하기
 ```java
