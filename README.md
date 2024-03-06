@@ -389,7 +389,7 @@ System.out.println(rs3);			// 0
 1. 문자열의 길이 : length()
 2. 문자 한 개 추출(인덱싱) : charAt(index) char타입 반환
 3. 문자 여러개 추출(슬라이싱) : substring(index), substring(index1, index2) idx1 <= n < idx2 추출
-4. split(구분자 문자) : 구분자로 잘라내어 배열에 저장
+4. split(구분자 문자) : 구분자로 잘라내어 배열에 저장 (특수문자는 문자앞에 \\을 붙여주거나 []로 감싸줘야 오류가 발생안함)
 5. trim() : 앞뒤 공백 제거
 6. replaceAll("기존단어","대체단어") : 문자열 변경
 
