@@ -423,6 +423,12 @@ String strList = scan.nextLine();
 char[] chList = strList.toCharArray();
 ```
 
+### 문자 형변환하기
+```java
+String str = "12345";
+int num = Character.getNumericValue(str.charAt(0)); //1
+```
+
 ## 문자열 포맷
 ```java
 String[] name = { "aaa" , "bbbbbbbb" , "c"};
