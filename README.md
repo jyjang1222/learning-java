@@ -1,3 +1,26 @@
+# 목차
+0. [자바 설치](#0-자바-설치)
+1. [기본이론](#1-기본이론)
+2. [변수](#2-변수)
+3. [반복문](#3-반복문)
+4. [배열](#4-배열)
+5. [문자열](#5-문자열)
+6. [클래스](#6-클래스)
+7. [메서드](#7-메서드)
+8. [예외처리](#8-예외처리)
+9. [파일입출력](#9-파일입출력)
+10. [생성자](#10-생성자)
+11. [캡슐화](#11-캡슐화)
+12. [스태틱](#12-스태틱)
+13. [상속](#13-상속)
+14. [추상화](#14-추상화)
+15. [인터페이스](#15-인터페이스)
+16. [다형성](#16-다형성)
+17. [날짜](#17-날짜)
+18. [싱글톤 패턴](#18-싱글톤-패턴)
+19. [제네릭](#19-제네릭)
+20. [콜렉션](#20-콜렉션)
+
 # 객체지향 프로그래밍 주요개념 한 줄 정리
 - **클래스**란 객체를 생성하기위해 변수와 메서드가 정의돼있는 틀
 - **객체**란 인스턴스와 같은 개념으로 쓰이지만, 세세하게 따지면 인스턴스들을 총칭하는 용어 (함수와 메서드의 차이 정도)
@@ -10,6 +33,119 @@
   
 - **오버로딩**이란 같은 이름의 메서드를 만들 수 있는 기능
 - **오버라이딩**이란 부모 클래스의 메서드를 자식클래스가 같은 이름으로 재정의해서 만들수 있는 기능
+
+# 자바 명명 규칙
+## 네이버 자바 코딩 컨벤션
+https://naver.github.io/hackday-conventions-java/
+
+## 공통 명명 규칙
+### 규칙
+1. 대소문자가 구분되며 길이에 제한이 없다.
+2. 예약어를 사용해서는 안 된다.
+3. 숫자로 시작해서는 안 된다.
+4. 특수문자는 '_' 와 '$'만을 허용한다.
+5. 파스칼 표기법 (PascalCase)과 카멜 표기법(camelCase)를 사용한다.
+6. 반의어는 반드시 대응하는 개념으로 사용해야 한다.
+
+※ PascalCase : 모든 단어에서 첫 번째 문자는 대문자이며 나머지는 소문자이다.
+※ camelCase : 최초에 사용된 단어를 제외한 첫 번째 문자가 대문자이며 나머지는 소문자이다.
+
+### 패키지 명명 규칙
+1. 패키지명은 표준 패턴을 따라야 한다.
+     (ex. [com].[Company].[Project].[TopPackage].[LowerPackage])
+
+2. 패키지명은 가급적 한 단어의 명사를 사용한다.
+     (ex. com.nexon.sudden.member.object (o) / sudden.memberObject (x)
+
+### 클래스 명명 규칙
+1. 클래스명에는 파스칼을 사용한다.
+     (ex. public class HelloWorld {})
+2. 인터페이스에는 특별한 접두사나 접미사를 사용하지 않고 파스칼을 사용한다.
+     (ex. public interface Animal {})
+3. 인터페이스를 구현한 클래스에는 특별한 접두사나 접미사를 사용하지 않고 파스칼을 사용한다.
+     (ex. public class Tiger implements animal{})
+4. 추상 클래스에는 특별한 접두사 접미사를 사용하지 않고 파스칼을 사용한다.
+     (ex. public abstract class Animal {})
+
+### 메소드 명명 규칙
+1. 메소드명에는 카멜 표기법을 사용한다.
+     (ex. public void sendMessage(String message) {} )
+
+2. 속성에 접근하는 메소드명의 접두사는 'get','set'을 사용한다.
+     (ex. public void setDisplayName)
+     (ex. public void getDisplayName)
+
+3. 데이터를 조회하는 메소드명의 접두사는 find를 사용한다.
+     (ex. public void findData(String data){})
+
+4. 데이터를 입력하는 메소드명의 접두사는 input을 사용한다.
+     (ex. public void inputData(HashMap data){})
+
+5. 데이터를 변경하는 메소드명의 접두사는 modify를 사용한다.
+     (ex. public void modifyData(HashMap data){})
+
+6. 데이터를 삭제하는 메소드명의 접두사는 delete를 사용한다.
+     (ex. public void deleteData(String data){})
+
+7. 데이터를 초기화 하는 메소드명의 접두사는 initialize을 사용한다.
+     (ex. public void initData(String data){})
+
+8. 반환값의 타입이 boolean인 메소드는 접두사로 is를 사용한다.
+     (ex. public void isData(String Data){})
+
+9. 데이터를 불러오는 메소드명의 접두사는 load를 사용한다.
+     (ex. public void loadData(){})
+
+10. 데이터가 있는지 확인하는 메소드명의 접두사는 has를 사용한다.
+     (ex. public void hasData(){})
+
+11. 보다 지능적인 set이 요구될때 사용하는 메소드명의 접두사는 register를 사용한다.
+     (ex. public void registerAccount(){})
+
+12. 새로운 객체를 만든뒤 해당 객체를 리턴해주는 메소드명의 접두사는 create를 사용한다.
+     (ex. public void createAccount(){})
+
+13. 해당 객체를 다른 형태의 객체로 변환해주는 메소드명의 접두사는 to를 사용한다.
+     (ex. public void toString(){})
+
+14. 해당 객체가 복수인지 단일인지 구분하는 메서드명의 접미사는 s를 사용한다.
+     (ex. public void getMembers(){})
+
+15. B를 기준으로 A를 하겠다는 메소드명의 전치사는 By를 사용한다.
+     (ex. public void getUserByName(String name){})
+
+### 변수 명명 규칙
+1. 변수와 메소드의 파라미터에는 카멜표기법을 사용한다.
+2. 변수에 약어를 사용하지 않고 모든 의미를 충분히 담는다.
+3. 한 글자로 된 이름을 사용하지 않는다.
+4. 선언된 지점에서 초기화하며, 가능한 사용범위를 최소화 한다.
+     (ex. 숫자 0 레퍼런스 null)
+   
+6. 반복문에서 인덱스로 사용할 변수는 i,j,k 등으로 사용한다.
+     (ex. for(int i = 0; i < 10; i++){})
+
+7. 지역변수와 멤버변수(전역변수)는 변수명 앞에 밑줄(_)을 사용하여 구별한다.
+
+8. boolean타입의 변수는 접두사로 is를 사용한다
+
+## 많이 쓰이는 반의어 정리
+| 반의어 | 설명 |
+|:---|:---|
+|get / set|얻다 / 놓다|
+|add / remove|추가 / 제거|
+|create / destroy|창조 / 파괴|
+|start / stop|시동 / 정지|
+|insert / delete|삽입 / 삭제|
+|increment / decrement|증가 / 감소|
+|old / new|구 / 신|
+|first / last|처음 / 마지막|
+|up / down|위 / 아래|
+|min / max|최소 / 최대|
+|next / previous|다음 / 이전|
+|open / close|열다 / 닫다|
+|show / hide|보이다 / 숨기다|
+|pause / resume|일시 정지 / 재개하다|
+|parent / child|부모 / 자식|
 
 # 0. 자바 설치
 1. 자바 언어
@@ -226,7 +362,7 @@ public class 메서드1_개념06_기본이론6 {
 }
 ```
 
-# 5.문자열
+# 5. 문자열
 ## 문자열 비교
 ```java
 /*
@@ -251,22 +387,23 @@ System.out.println(rs3);			// 0
 
 ## 문자열 함수
 1. 문자열의 길이 : length()
-2. 문자 한 개 추출(인덱싱) : charAt(index)
-3. 문자 여러개 추출(슬라이싱) : substring(index), substring(index1, index2)
-4. split(구분자 문자) : 구분자로 잘라내어 배열에 저장
+2. 문자 한 개 추출(인덱싱) : charAt(index) char타입 반환
+3. 문자 여러개 추출(슬라이싱) : substring(index), substring(index1, index2) idx1 <= n < idx2 추출
+4. split(구분자 문자) : 구분자로 잘라내어 배열에 저장 (특수문자는 문자앞에 \\을 붙여주거나 []로 감싸줘야 오류가 발생안함)
 5. trim() : 앞뒤 공백 제거
 6. replaceAll("기존단어","대체단어") : 문자열 변경
 
 ## 형변환
+### 기본 자료형 형변환하기
 ```java
-// 1. 기본 자료형 형변환하는 방법 : (자료형)변수
 // * 문자 -> 숫자
 char ch = 'a';
 int chNum = (int)ch;	// 97
 		
 ch = (char)(chNum + 1);    //b
-		
-// 2. 문자열 형변환하는 방법 : 특수함수를 사용해야한다.
+```
+### 문자열 형변환하기
+```java
 // * 문자열 -> 숫자
 String strNum = "10";
 int num = Integer.parseInt(strNum);
@@ -280,6 +417,16 @@ System.out.println(strNum + 1);		// 101
 // 방법2) 정식
 strNum = String.valueOf(num);
 System.out.println(strNum + 1);		// 101
+
+// 문자열 -> 문자 배열
+String strList = scan.nextLine();
+char[] chList = strList.toCharArray();
+```
+
+### 문자 형변환하기
+```java
+String str = "12345";
+int num = Character.getNumericValue(str.charAt(0)); //1
 ```
 
 ## 문자열 포맷
@@ -712,6 +859,23 @@ public class 예외처리_개념06_기본이론6 {
 	}
 }
 ```
+- 함수를 호출할때 try내부에서 사용되면 throws Exception을 붙여준다
+
+## try, catch, finally 예제
+```java
+FileWriter fw = null;
+// 중간지점에서 오류가 발생
+try {
+	fw = new FileWriter("ex01.txt");
+	fw.write("테스트");
+	// 중간지점에서 오류가 발생
+} catch(Exception e) {
+	e.printStackTrace();
+} finally {
+	// close() 메서드는 finally에
+	if (fw != null) {try {fw.close();} catch(IOException e) {}}
+}
+```
 
 ## Thread.sleep
 ```java
@@ -880,7 +1044,8 @@ public class 생성자_개념01_기본이론1 {
 ```
 
 # 11. 캡슐화
-- **캡슐화**란 외부로 부터 접근을 제어해서 데이터를 보호하는 것을 말한다 
+- **캡슐화**란 외부로 부터 접근을 제어해서 데이터를 보호하는 것을 말한다
+- 변수에는 private, 메서드에는 public 키워드를 붙이고 get, set메서드를 만들어 DTO클래스를 만드는 것으로 구현한다
 ## 접근제어자
 ```java
 class Test01 {
@@ -969,6 +1134,26 @@ public class 접근제어자_개념03_실습예제 {
 - default : 동일 패키지 클래스에서 접근 가능
 - private : 클래스 내부접근만 허용
 
+## DTO (Data Transfer Object)
+- 데이터 전송 객체
+- 데이터를 주고 받을 때 사용
+- 변수는 private 메서드는 public (캡슐화)
+- DTO 속성은 getter / setter 메서드로 구성
+- MySQL 테이블 1개에 해당
+
+```java
+class ClientDTO {
+	private int num;
+
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+}
+```
+
 # 12. 스태틱
 ## 스태틱 활용 예제1
 ```java
@@ -1004,18 +1189,12 @@ public class 스태틱1_개념01_기본이론1 {
 	- 변수는 각각의 인스턴스가 개별적으로 데이터를 갖게 된다. 인스턴스1.변수, 인스턴스2.변수
 	- 메서드는 new키워드를 사용하여 생성된 인스턴스를 통해 메서드를 호출해야한다. 인스턴스.메서드()
 
-## DTO, DAO
-### DTO (Data Transfer Object)
-- 데이터 전송 객체
-- 여러 레이어(Layer)간 데이터를 주고 받을 때 사용할 수 있고 주로 View와 Controller 사이에서 활용
-- 일반적으로 DB에서 가져온 데이터를 다른 계층에서 사용하기 적합한 형식으로 변환하여 전송하는데 사용
-- DTO 속성은 getter / setter 메서드로 구성
-- 데이터 전송에만 사용
-### DAO (Data Access Object)
+## DAO (Data Access Object)
 - 데이터 접근 객체(DB의 data에 접근하기 위한 객체)
-- DB에서 데이터를 가져오거나 DB에 데이터를 저장하는 등 CRUD작업을 수행하는 객체
+- DB와 연동 및 DTO 데이터를 처리하기 위한 각종 메서드 보유
 - DAO를 static 으로 만들면 편하다.
 - DTO와 DAO는 항상 한세트로 만든다고 생각하면된다
+- 싱글톤 패턴이 DAO에 적용됨
 
 ## static, DTO, DAO 활용 예제
 ```java
@@ -1278,10 +1457,10 @@ class Test05_2 /*extends Object*/ {
 	int a;
 	int b;
 	
-	// @(어노테이션) 키워드
+	// @ 키워드 (어노테이션)
 	// 기능을 가진 주석
 	
-	// @Override (기능을 가진 주석)
+	// @Override
 	// 작성시 부모의 선언부와 동일하게 작성해야 문법 오류가 나지 않는다.
 	// 생략가능하지만 작성함으로써 엄격함 유지
 	
@@ -1637,45 +1816,22 @@ public class 추상화_개념06_다형성그리기 {
 - 상속받은 여러 타입의 클래스 자료형을 부모 클래스 배열로 통합해서 배열에 저장할 수 있다
 
 # 17. 날짜
+## 사용권장 순위
+- **LocalDate, LocalTime, LocalDateTime** > Date, Calendar
+- **DateTimeFormatter** > SimpleDateFormat
+### 날짜 관련 클래스가 다수 존재하는 이유
+- Java 8 이전에 사용하던 Date 관련 클래스는 Date, Calendar, SimpleDateFormat 등이 있었으나, 많은 문제가 있어 자바 8 버전 이후부터는 새로운 날짜 관련 API를 제공한다
+- Date, Calendar, SimpleDateFormat클래스들은 Java의 레거시 API
+
 ## Date
 ```java
 import java.util.Date;
 
 Date date = new Date();
 System.out.println(date); // Wed Jan 31 21:36:01 KST 2024
-// date메서드는 줄이 그여서 곧 사용금지될 함수들이다.
-// date를 사용하지말고 Calendar 클래스 사용을 권한다. 
+// date메서드는 곧 사용금지될 함수들이다.
 System.out.println("년 : " + (date.getYear() + 1900));
 ```
-- Date 클래스의 활용
-	- Date 클래스 객체에서 년, 월, 일, 시, 분, 초를 얻어오려면
-	- get으로 시작하는 메소드를 사용한다.
-	- Date 클래스는 1900년을 기준으로 날짜를 처리한다.
-
-## SimpleDateFormat
-```java
-import java.text.SimpleDateFormat;
-
-SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일 E요일 a hh시 mm분 ss초");
-System.out.println(sdf1.format(date));
-SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM.dd(E) HH:mm");
-System.out.println(sdf2.format(date));
-/*
-* System.currentTimeMillis()
-* 1970년 1월 1일 자정 부터 이 메소드가 실행되는 순간까지 지나온 시간을 밀리초(1/1000초) 단위로 얻어온다.
-* 13자리의 숫자를 얻어오기 때문에 int로 처리하면 에러가 발생되므로 long로 처리해야 한다.
-*/
-long time = System.currentTimeMillis();
-System.out.println(time);
-System.out.println(sdf2.format(time));
-```
-- 날짜 및 시간 출력 서식 지정 방법
-	- 날짜 및 시간 서식에 사용되는 영문자를 제외한 나머지 문자는 입력하는 그대로 출력된다.
-	- SimpleDateFormat sdf = new SimpleDateFormat("날짜 및 시간 서식");
-- 날짜 및 시간 서식 적용 방법
-	- sdf.format(date);
-- 날짜 및 시작 출력 서식 문자의 종류
-	- 구글에서 "simpledateformat 날짜 형식" 라고 검색하기
 
 ## Calendar
 ```java
@@ -1707,6 +1863,145 @@ System.out.println("초 : " + calendar.get(Calendar.SECOND));
 - Calendar 클래스 객체는 날짜 및 시간 정보 이외의 더 많은 정보를 가지고 있으므로 
 - SimpleDateFormat 클래스 객체를 이용해 서식을 지정하려면 getTime() 메소드로 날짜와 시간만 얻어온 후 적용시켜야 한다.
 - get() 메소드로 날짜,시간을 각각 구할수 있다.
+
+## SimpleDateFormat
+```java
+import java.text.SimpleDateFormat;
+
+SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일 E요일 a hh시 mm분 ss초");
+System.out.println(sdf1.format(date));
+SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy.MM.dd(E) HH:mm");
+System.out.println(sdf2.format(date));
+/*
+* System.currentTimeMillis()
+* 1970년 1월 1일 자정 부터 이 메소드가 실행되는 순간까지 지나온 시간을 밀리초(1/1000초) 단위로 얻어온다.
+* 13자리의 숫자를 얻어오기 때문에 int로 처리하면 에러가 발생되므로 long로 처리해야 한다.
+*/
+long time = System.currentTimeMillis();
+System.out.println(time);
+System.out.println(sdf2.format(time));
+```
+
+## LocalDate, LocalTime, LocalDateTime
+### 현재 날짜 및 시간 가져오기
+```java
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+// 현재 날짜 가져오기
+LocalDate currentDate = LocalDate.now();
+
+// 현재 시간 가져오기
+LocalTime currentTime = LocalTime.now();
+
+// 현재 날짜와 시간 가져오기
+LocalDateTime currentDateTime = LocalDateTime.now();
+```
+
+### 특정 날짜와 시간 생성하기
+```java
+// 특정 날짜 생성하기 (년, 월, 일)
+LocalDate date = LocalDate.of(2022, 9, 15);
+
+// 특정 시간 생성하기 (시, 분)
+LocalTime time = LocalTime.of(14, 30);
+
+// 특정 날짜와 시간 생성하기 (년, 월, 일, 시, 분)
+LocalDateTime dateTime = LocalDateTime.of(2022, 9, 15, 14, 30);
+```
+
+### 날짜 및 시간 계산하기
+```java
+// 날짜에 대한 연산
+LocalDate tomorrow = LocalDate.now().plusDays(1); // 내일
+LocalDate nextWeek = LocalDate.now().plusWeeks(1); // 일주일 후
+
+// 시간에 대한 연산
+LocalDateTime nextHour = LocalDateTime.now().plusHours(1); // 한 시간 후
+
+// 두 날짜 사이의 일 수 계산
+LocalDate startDate = LocalDate.of(2022, 1, 1);
+LocalDate endDate = LocalDate.of(2022, 12, 31);
+long daysBetween = ChronoUnit.DAYS.between(startDate, endDate); // 2022년의 일 수
+```
+
+### 날짜 및 시간 연산하기
+```java
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+// 날짜에 대한 연산
+LocalDate tomorrow = LocalDate.now().plusDays(1); // 내일
+LocalDate nextWeek = LocalDate.now().plusWeeks(1); // 일주일 후
+
+// 시간에 대한 연산
+LocalDateTime nextHour = LocalDateTime.now().plusHours(1); // 한 시간 후
+
+// 두 날짜 사이의 일 수 계산
+LocalDate startDate = LocalDate.of(2022, 1, 1);
+LocalDate endDate = LocalDate.of(2022, 12, 31);
+long daysBetween = ChronoUnit.DAYS.between(startDate, endDate); // 2022년의 일 수
+```
+
+## ZonedDateTime, ZoneId
+- 타임존까지 고려할때 쓰는 날짜 클래스
+
+### 현재 시간의 ZonedDateTime 가져오기
+```java
+import java.time.ZonedDateTime;
+
+ZonedDateTime currentDateTime = ZonedDateTime.now();
+```
+
+### 특정 타임존의 ZonedDateTime 생성하기
+```java
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+
+ZonedDateTime dateTimeInNewYork = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+ZonedDateTime dateTimeInNewYork = ZonedDateTime.now(ZoneId.of("UTC"));
+```
+
+### ZonedDateTime 간의 변환
+```java
+import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
+// LocalDateTime을 특정 타임존으로 변환
+LocalDateTime localDateTime = LocalDateTime.now();
+ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.of("Asia/Seoul"));
+
+// ZonedDateTime을 다른 타임존으로 변환
+ZonedDateTime newYorkTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+ZonedDateTime londonTime = newYorkTime.withZoneSameInstant(ZoneId.of("UTC"));
+```
+
+### ZonedDateTime에서 시간 정보 가져오기
+```java
+import java.time.ZonedDateTime;
+import java.time.LocalTime;
+
+ZonedDateTime zonedDateTime = ZonedDateTime.now();
+LocalTime time = zonedDateTime.toLocalTime();
+```
+
+## DateTimeFormatter
+### 특정 서식으로 날짜와 시간 표시하기
+```java
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+// 날짜와 시간 객체 생성
+LocalDateTime dateTime = LocalDateTime.now();
+
+// 패턴을 사용하여 날짜와 시간을 문자열로 변환
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+String formattedDateTime = dateTime.format(formatter);
+System.out.println(formattedDateTime); // 예: 2022-02-28 13:45:30
+```
 
 # 18. 싱글톤 패턴
 ```java
